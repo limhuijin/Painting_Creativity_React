@@ -1,1 +1,0 @@
-# Painting_Creativity_React
