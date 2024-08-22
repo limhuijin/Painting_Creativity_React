@@ -15,36 +15,44 @@ function App() {
     if (file) {
       const formData = new FormData();
       formData.append('file', file);
-
+  
+      // 파일이 FormData에 제대로 추가되었는지 확인
+      if (!formData.get('file')) {
+        alert('파일이 FormData에 제대로 추가되지 않았습니다. 다시 시도해 주세요.');
+        return;
+      }
+  
       // 서버로 이미지 업로드 요청
-      axios.post('b20/upload/', formData)
+      axios.post('https://a236-106-255-245-242.ngrok-free.app/upload/', formData)
         .then(response => {
-          console.log('Server response:', response.data);
           setImageURL(response.data.file_url);  // 서버에서 받은 이미지 URL을 설정
           setSelectedImage(URL.createObjectURL(file));  // 로컬에서 미리보기 위해 이미지 URL 업데이트
           setIsModalOpen(false);  // 모달 창 닫기
         })
         .catch(error => {
           console.error('Upload error:', error);
+          
           if (error.response) {
-            console.error('Upload failed with status:', error.response.status);
-            console.error('Error details:', error.response.data);
-            alert(`업로드에 실패했습니다: ${error.response.data.error}`);
+            // 서버가 응답했으나 2xx 범위 외의 상태 코드
+            alert(`업로드에 실패했습니다: ${error.response.data.error}\n상태 코드: ${error.response.status}\n응답 데이터: ${JSON.stringify(error.response.data)}`);
           } else if (error.request) {
-            console.error('No response received:', error.request);
-            alert('서버로부터 응답을 받지 못했습니다.');
+            // 요청이 이루어졌으나 서버로부터 응답이 없을 경우
+            alert(`서버로부터 응답을 받지 못했습니다.\nXMLHttpRequest 객체: [object XMLHttpRequest]\n요청 데이터: ${file.name || '파일 이름을 알 수 없습니다'}`);
           } else {
-            console.error('Error setting up the request:', error.message);
-            alert('요청 중 오류가 발생했습니다.');
+            // 요청 설정 중에 발생한 오류
+            alert(`요청 중 오류가 발생했습니다.\n오류 메시지: ${error.message}`);
           }
         });
+    } else {
+      alert('파일이 선택되지 않았습니다. 파일을 선택해 주세요.');
     }
   };
+  
 
   // "해석 시작" 버튼이 눌렸을 때 호출되는 함수
   const handleStartAnalysis = () => {
     if (imageURL) {
-      axios.get(`b20/analyze/?image=${encodeURIComponent(imageURL)}`, {
+      axios.get(`https://a236-106-255-245-242.ngrok-free.app/analyze/?image=${encodeURIComponent(imageURL)}`, {
         headers: {
           'Content-Type': 'application/json',
           'ngrok-skip-browser-warning': '69420',
@@ -96,8 +104,8 @@ function App() {
               options={{
                 scales: {
                   y: {
-                    beginAtZero: true,
-                    min: 0,
+                    beginAtZero: false,
+                    min: 1,
                     max: 5,
                     ticks: {
                       stepSize: 0.5,
