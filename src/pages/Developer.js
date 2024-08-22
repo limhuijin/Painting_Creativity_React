@@ -1,12 +1,12 @@
 import React from 'react';
 
-function About() {
+function Developer() {
   return (
     <div className="container my-5">
       <h2>개발자 소개 페이지입니다.</h2>
-      <p>이 페이지는 개발자에 대한 정보를 제공합니다.</p>
+      <p>내가 S면 넌 N이 되어줘..</p>
     </div>
   );
 }
 
-export default About;
+export default Developer;

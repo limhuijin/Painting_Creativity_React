@@ -16,10 +16,9 @@ function Header() {
         {/* 네비게이션 메뉴 */}
         <nav className="header-nav">
           <ul>
-            <li><Link to="/">메인</Link></li>
-            <li><Link to="/features">기능</Link></li>
-            <li><Link to="/docs">사용 설명서</Link></li>
-            <li><Link to="/about">개발자 소개</Link></li>
+            <li><Link to="/Manual">소개</Link></li>
+            <li><Link to="/GetStarted">실습하기</Link></li>
+            <li><Link to="/Developer">개발자 소개</Link></li>
           </ul>
         </nav>
       </div>
