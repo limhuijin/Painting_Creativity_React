@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Bar } from 'react-chartjs-2';
 import 'chart.js/auto';
-
-// API 경로를 전역 상수로 정의
-const API_BASE_URL = 'https://bfc9-106-255-245-242.ngrok-free.app';
+import config from './config';  // config.js 파일을 import
 
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -20,7 +18,7 @@ function App() {
       formData.append('file', file);
   
       // 서버로 이미지 업로드 요청
-      axios.post(`${API_BASE_URL}/upload/`, formData)
+      axios.post(`${config.API_BASE_URL}/upload/`, formData)
         .then(response => {
           setImageURL(response.data.file_url);  // 서버에서 받은 이미지 URL을 설정
           setSelectedImage(URL.createObjectURL(file));  // 로컬에서 미리보기 위해 이미지 URL 업데이트
@@ -41,12 +39,11 @@ function App() {
       alert('파일이 선택되지 않았습니다. 파일을 선택해 주세요.');
     }
   };
-  
 
   // "해석 시작" 버튼이 눌렸을 때 호출되는 함수
   const handleStartAnalysis = () => {
     if (imageURL) {
-      axios.get(`${API_BASE_URL}/analyze/?image=${encodeURIComponent(imageURL)}`, {
+      axios.get(`${config.API_BASE_URL}/analyze/?image=${encodeURIComponent(imageURL)}`, {
         headers: {
           'Content-Type': 'application/json',
           'ngrok-skip-browser-warning': '69420',
