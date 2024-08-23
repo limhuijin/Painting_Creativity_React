@@ -3,6 +3,9 @@ import axios from 'axios';
 import { Bar } from 'react-chartjs-2';
 import 'chart.js/auto';
 
+// API 경로를 전역 상수로 정의
+const API_BASE_URL = 'https://bfc9-106-255-245-242.ngrok-free.app';
+
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,14 +19,8 @@ function App() {
       const formData = new FormData();
       formData.append('file', file);
   
-      // 파일이 FormData에 제대로 추가되었는지 확인
-      if (!formData.get('file')) {
-        alert('파일이 FormData에 제대로 추가되지 않았습니다. 다시 시도해 주세요.');
-        return;
-      }
-  
       // 서버로 이미지 업로드 요청
-      axios.post('https://a236-106-255-245-242.ngrok-free.app/upload/', formData)
+      axios.post(`${API_BASE_URL}/upload/`, formData)
         .then(response => {
           setImageURL(response.data.file_url);  // 서버에서 받은 이미지 URL을 설정
           setSelectedImage(URL.createObjectURL(file));  // 로컬에서 미리보기 위해 이미지 URL 업데이트
@@ -33,13 +30,10 @@ function App() {
           console.error('Upload error:', error);
           
           if (error.response) {
-            // 서버가 응답했으나 2xx 범위 외의 상태 코드
             alert(`업로드에 실패했습니다: ${error.response.data.error}\n상태 코드: ${error.response.status}\n응답 데이터: ${JSON.stringify(error.response.data)}`);
           } else if (error.request) {
-            // 요청이 이루어졌으나 서버로부터 응답이 없을 경우
-            alert(`서버로부터 응답을 받지 못했습니다.\nXMLHttpRequest 객체: [object XMLHttpRequest]\n요청 데이터: ${file.name || '파일 이름을 알 수 없습니다'}`);
+            alert('서버로부터 응답을 받지 못했습니다.');
           } else {
-            // 요청 설정 중에 발생한 오류
             alert(`요청 중 오류가 발생했습니다.\n오류 메시지: ${error.message}`);
           }
         });
@@ -52,7 +46,7 @@ function App() {
   // "해석 시작" 버튼이 눌렸을 때 호출되는 함수
   const handleStartAnalysis = () => {
     if (imageURL) {
-      axios.get(`https://a236-106-255-245-242.ngrok-free.app/analyze/?image=${encodeURIComponent(imageURL)}`, {
+      axios.get(`${API_BASE_URL}/analyze/?image=${encodeURIComponent(imageURL)}`, {
         headers: {
           'Content-Type': 'application/json',
           'ngrok-skip-browser-warning': '69420',
