@@ -1,11 +1,13 @@
 import styled from "styled-components";
+import GithubButton from "./GithubButton";
 
 const Style = styled.footer`
   width: 100%;
   height: 4rem;
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  align-items: center;
+  padding: 20px 40px;
   z-index: 1000;
   background-color: #f8f9fa;
   position: relative;
@@ -16,6 +18,7 @@ const Footer = () => {
   return (
     <Style>
       <h4>푸터</h4>
+      <GithubButton />
     </Style>
   );
 };
