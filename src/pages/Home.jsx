@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-const Style = styled.div``;
+const Style = styled.div`
+  text-align: center;
+  line-height: 2;
+`;
 
 /*
 // 세로모드 모바일
@@ -15,7 +18,8 @@ const Style = styled.div``;
 const Home = () => {
   return (
     <Style>
-      <h1>Home</h1>
+      <h1>창의성 분석 프로그램</h1>
+      <p>아이들의 그림을 통해 창의성을 분석하는 프로그램입니다.</p>
     </Style>
   );
 };
