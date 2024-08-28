@@ -117,6 +117,7 @@ const Menu = styled.div`
 `;
 
 const Header = () => {
+  // 햄버거 메뉴 열고 닫기
   const toggleMenu = () => {
     const menu = document.querySelector(".menu");
     const ul = document.querySelector("ul");

@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header, Footer } from "./components";
 import { Home, About, GetStarted, Developers } from "./pages";
 import styled from "styled-components";
+import { useEffect } from "react";
 
 const Style = styled.main`
   height: auto;
@@ -11,10 +12,28 @@ const Style = styled.main`
 `;
 
 function App() {
+  // 햄버거 메뉴 닫기
+  const closeMenu = () => {
+    const menu = document.querySelector(".menu");
+    const ul = document.querySelector("ul");
+    menu.classList.remove("open");
+    ul.classList.remove("open");
+  };
+
+  useEffect(() => {
+    // 스크롤시 메뉴 닫기
+    window.addEventListener("scroll", closeMenu);
+
+    // 클리너
+    return () => {
+      window.removeEventListener("scroll", closeMenu);
+    };
+  }, []);
+
   return (
     <BrowserRouter>
       <Header />
-      <Style>
+      <Style onClick={closeMenu}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
