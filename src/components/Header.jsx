@@ -43,8 +43,6 @@ const Style = styled.header`
 
   // 세로모드 모바일
   @media (max-width: 991px) and (orientation: portrait) {
-    box-shadow: none;
-
     ul:not(.open) {
       display: none;
     }
