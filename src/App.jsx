@@ -5,10 +5,11 @@ import styled from "styled-components";
 import { useEffect } from "react";
 
 const Style = styled.main`
-  height: auto;
   min-height: calc(100% - 4rem); // 헤더 높이
   padding: 20px;
   padding-bottom: 4rem; // 푸터 높이
+  display: flex;
+  align-items: center;
 `;
 
 function App() {
