@@ -13,7 +13,12 @@ const Container = styled.div`
   justify-content: center; 
   text-align: center;
   height: 100vh;
-`;
+  background-image: url("/src/assets/background.jpg");
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-color: rgba(255, 255, 255, 0.6);
+  background-blend-mode: lighten; // 배경 이미지 혼합 모드 설정(?)
+  `;
 
 // 메인 섹션
 const MainSection = styled.main`
