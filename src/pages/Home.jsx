@@ -12,7 +12,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center; 
   text-align: center;
-  height: 100vh; 
+  height: 100vh;
 `;
 
 // 메인 섹션
@@ -65,9 +65,9 @@ const Card = styled.div`
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
   flex: 1;
   text-align: left; 
+
   opacity: 0; // 처음에 카드를 보이지 않게 설정
   transform: translateY(100%); // 카드가 화면 밖에서 시작
-
   &.move {
     animation: move_picture 2.5s ease-out forwards; // 애니메이션 속도
   }
@@ -125,16 +125,16 @@ const Home = () => {
 
         <CardSection>
           <Card className="move">
-            <CardTitle>장점1</CardTitle>
-            <CardDescription>장점1 설명</CardDescription>
+            <CardTitle>AI 딥러닝 기반</CardTitle>
+            <CardDescription>AI 딥러닝을 기반으로 아이들 그림의 창의성을 분석합니다.</CardDescription>
           </Card>
           <Card className="move">
-            <CardTitle>장점2</CardTitle>
-            <CardDescription>장점2 설명</CardDescription>
+            <CardTitle>흥미성과 예술적 표현 장려</CardTitle>
+            <CardDescription>본 프로그램은 그림에 대한 흥미성과 예술적 표현을 장려합니다.</CardDescription>
           </Card>
           <Card className="move">
-            <CardTitle>장점3</CardTitle>
-            <CardDescription>장점3 설명</CardDescription>
+            <CardTitle>개인 맞춤형 창의성</CardTitle>
+            <CardDescription>본 프로그램은 창의성을 분석하여 필요에 맞춘 지원을 할 수 있도록 돕습니다.</CardDescription>
           </Card>
         </CardSection>
       </Container>
