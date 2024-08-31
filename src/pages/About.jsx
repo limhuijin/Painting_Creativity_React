@@ -5,23 +5,39 @@ const Style = styled.div`
   display: flex;
   align-items: flex-start;
   padding: 20px;
+
+  @media (max-width: 991px) and (orientation: portrait) {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
 `;
 
 const ImageContainer = styled.div`
-  width: 40%;
+  width: 50%;
   margin-right: 20px;
-  
+  position: relative;
+
   img {
-    width: 80%;
+    width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 991px) and (orientation: portrait) {
+    width: 70%;
+    margin-right: 0;
+    margin-bottom: 20px;
+    img {
+      width: 100%;
+    }
   }
 `;
 
 const TextContainer = styled.div`
   width: 60%;
-  
+
   h2 {
     font-size: 2rem;
     margin-bottom: 20px;
@@ -38,6 +54,20 @@ const TextContainer = styled.div`
     margin-left: 20px;
     font-size: 1.2rem;
   }
+
+  @media (max-width: 991px) and (orientation: portrait) {
+    width: 100%;
+    text-align: center;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    p, ul {
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+  }
 `;
 
 const LineBreak = styled.div`
@@ -48,6 +78,11 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
+
+  @media (max-width: 991px) and (orientation: portrait) {
+    justify-content: center;
+    width: 100%;
+  }
 `;
 
 const StyledButton = styled(Link)`
@@ -63,6 +98,11 @@ const StyledButton = styled(Link)`
 
   &:hover {
     background-color: #0056b3;
+  }
+
+  @media (max-width: 991px) and (orientation: portrait) {
+    width: 80%;
+    text-align: center;
   }
 `;
 

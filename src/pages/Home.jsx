@@ -13,33 +13,43 @@ const Container = styled.div`
   justify-content: center; 
   text-align: center;
   height: 100vh;
+  width: 100vw;
   background-image: url("/src/assets/background.jpg");
   background-position: center;
   background-repeat: no-repeat; 
   background-color: rgba(255, 255, 255, 0.6);
-  background-blend-mode: lighten; // 배경 이미지 혼합 모드 설정(?)
-  `;
+  background-blend-mode: lighten;
+`;
 
-// 메인 섹션
 const MainSection = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   flex: 1; 
+  width: 100%;
+  padding: 20px;
 `;
 
 // 제목 텍스트
 const Title = styled.h2`
-  font-size: 36px; 
-  font-weight: bold; 
-  margin-bottom: 20px; 
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+
+  @media (max-width: 991px) {
+    font-size: 24px; 
+  }
 `;
 
 // 설명 텍스트
 const Description = styled.p`
   font-size: 18px;
-  margin-bottom: 40px; 
+  margin-bottom: 40px;
+
+  @media (max-width: 991px) {
+    font-size: 16px; 
+  }
 `;
 
 // 버튼
@@ -51,30 +61,67 @@ const ButtonStyled = styled(Link)`
   border: none;
   border-radius: 5px;
   font-size: 16px;
-  cursor: pointer; 
+  cursor: pointer;
+
+
 `;
 
-// 카드 
+// 카드 섹션
 const CardSection = styled.section`
   display: flex;
-  gap: 20px; // 카드들 사이 간격 설정
-  margin-top: 20px; // 위쪽 여백 설정
-  padding-bottom: 40px; // 푸터랑 간격 유지
+  gap: 20px;
+  margin-top: 20px;
+  padding-bottom: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media (max-width: 991px) and (orientation: portrait) {
+    flex-direction: column; // 세로모드 카드 수직 레이아웃
+    align-items: center;
+  }
 `;
 
 // 각 카드 스타일링
 const Card = styled.div`
-  background-color: #fff; 
-  padding: 20px; // 안쪽 여백
-  border-radius: 10px; 
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   flex: 1;
-  text-align: left; 
+  text-align: left;
+  max-width: 300px;
+  margin: 10px;
 
-  opacity: 0; // 처음에 카드를 보이지 않게 설정
-  transform: translateY(100%); // 카드가 화면 밖에서 시작
+  opacity: 0;
+  transform: translateY(100%);
   &.move {
-    animation: move_picture 2.5s ease-out forwards; // 애니메이션 속도
+    animation: move_picture 2.5s ease-out forwards;
+  }
+
+  @media (max-width: 991px) {
+    max-width: 100%; // 세로모드에서 카드가 전체 너비를 차지
+    padding: 15px;
+  }
+`;
+
+// 카드 제목 텍스트
+const CardTitle = styled.h3`
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+
+  @media (max-width: 991px) {
+    font-size: 18px;
+  }
+`;
+
+// 카드 설명 텍스트
+const CardDescription = styled.p`
+  font-size: 16px;
+  color: #555;
+
+  @media (max-width: 991px) {
+    font-size: 14px;
   }
 `;
 
@@ -91,31 +138,6 @@ const KeyFrameAnimation = styled.div`
     }
   }
 `;
-
-
-// 카드 제목 텍스트
-const CardTitle = styled.h3`
-  font-size: 20px; 
-  font-weight: bold; 
-  margin-bottom: 20px; 
-`;
-
-// 카드 설명 텍스트
-const CardDescription = styled.p`
-  font-size: 16px; 
-  color: #555; 
-`;
-
-
-/*
-// 세로모드 모바일
-  @media (max-width: 991px) and (orientation: portrait) {
-  }
-
-// 가로모드 모바일
-  @media (max-width: 991px) and (orientation: landscape) {
-  }
-*/
 
 const Home = () => {
   return (
