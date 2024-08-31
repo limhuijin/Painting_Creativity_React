@@ -102,7 +102,7 @@ const About = () => {
         <LineBreak />
         <ul>
           <li><strong>1. 사진 업로드</strong><p>아이들의 그림을 업로드 해주세요.</p></li>
-          <li><strong>2. 분석</strong><p>'분석하기' 버튼을 눌러서 창의성을 분석해주세요.</p></li>
+          <li><strong>2. 분석</strong><p>&rsquo;분석하기&rsquo; 버튼을 눌러서 창의성을 분석해주세요.</p></li>
         </ul>
       </TextContainer>
     </Style>
