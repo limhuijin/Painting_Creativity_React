@@ -9,6 +9,7 @@ const Style = styled.main`
   padding: 20px;
   padding-bottom: 4rem; // 푸터 높이
   display: flex;
+  justify-content: center;
   align-items: center;
 `;
 

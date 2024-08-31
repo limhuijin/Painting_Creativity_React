@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Button from "../components/Button";
 
 const Style = styled.div`
   text-align: center;
@@ -10,13 +11,13 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   text-align: center;
   height: 100vh;
   width: 100vw;
   background-image: url("/src/assets/background.jpg");
   background-position: center;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   background-color: rgba(255, 255, 255, 0.6);
   background-blend-mode: lighten;
 `;
@@ -62,8 +63,6 @@ const ButtonStyled = styled(Link)`
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-
-
 `;
 
 // 카드 섹션
@@ -146,22 +145,33 @@ const Home = () => {
       <Container>
         <MainSection>
           <Title>아이들 그림 창의성 분석 사이트에 오신걸 환영합니다</Title>
-          <Description>그림을 업로드하여 아이들의 창의성을 분석해보세요!</Description>
-          <ButtonStyled to="/get-started">실습하러 가기!</ButtonStyled>
+          <Description>
+            그림을 업로드하여 아이들의 창의성을 분석해보세요!
+          </Description>
+          <Link to="/get-started" style={{textDecoration: "none"}}>
+            <Button text="시작하기" />
+          </Link>
         </MainSection>
 
         <CardSection>
           <Card className="move">
             <CardTitle>AI 딥러닝 기반</CardTitle>
-            <CardDescription>AI 딥러닝을 기반으로 아이들 그림의 창의성을 분석합니다.</CardDescription>
+            <CardDescription>
+              AI 딥러닝을 기반으로 아이들 그림의 창의성을 분석합니다.
+            </CardDescription>
           </Card>
           <Card className="move">
             <CardTitle>흥미성과 예술적 표현 장려</CardTitle>
-            <CardDescription>본 프로그램은 그림에 대한 흥미성과 예술적 표현을 장려합니다.</CardDescription>
+            <CardDescription>
+              본 프로그램은 그림에 대한 흥미성과 예술적 표현을 장려합니다.
+            </CardDescription>
           </Card>
           <Card className="move">
             <CardTitle>개인 맞춤형 창의성</CardTitle>
-            <CardDescription>본 프로그램은 창의성을 분석하여 필요에 맞춘 지원을 할 수 있도록 돕습니다.</CardDescription>
+            <CardDescription>
+              본 프로그램은 창의성을 분석하여 필요에 맞춘 지원을 할 수 있도록
+              돕습니다.
+            </CardDescription>
           </Card>
         </CardSection>
       </Container>
