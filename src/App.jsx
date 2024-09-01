@@ -6,11 +6,12 @@ import { useEffect } from "react";
 
 const Style = styled.main`
   min-height: calc(100% - 4rem); // 헤더 높이
-  padding: 20px;
+  padding: 20px 0;
   padding-bottom: 4rem; // 푸터 높이
   display: flex;
   justify-content: center;
   align-items: center;
+  word-break: keep-all;
 `;
 
 function App() {
