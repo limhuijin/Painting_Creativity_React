@@ -10,7 +10,6 @@ const Style = styled.div`
   width: 100%;
   min-height: calc(100vh - 10rem);
   padding: 0 40px;
-  word-break: keep-all;
   overflow: hidden;
 
   background-image: url("/src/assets/background.jpg");

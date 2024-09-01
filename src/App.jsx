@@ -11,6 +11,7 @@ const Style = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
+  word-break: keep-all;
 `;
 
 function App() {
