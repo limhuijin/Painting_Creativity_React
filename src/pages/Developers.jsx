@@ -57,10 +57,10 @@ const StyledCard = styled.div`
   border: 2px solid #888888;
   border-radius: 10px;
   padding: 1em;
-  width: 25%;
+  width: 20%;
   gap: 0.5em;
 
-  & > img {
+  img {
     width: 50%;
     border-radius: 50%;
   }

@@ -15,6 +15,7 @@ const Style = styled.header`
     align-items: center;
     gap: 2.5rem;
     list-style: none;
+    z-index: 1000;
   }
 
   a {
