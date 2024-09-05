@@ -15,7 +15,7 @@ const Style = styled.div`
   background-image: url("/src/assets/backgroundtest.jpg");
   background-position: bottom;
   background-repeat: no-repeat;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.85);
   background-blend-mode: lighten;
 
   .main-container {
