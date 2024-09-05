@@ -4,17 +4,18 @@ import PropTypes from "prop-types";
 
 const Style = styled.button`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 10px 20px;
-  background-color: ${color.blue};
+  padding: 14px 35px;
+  background-color: #99f5e8;
   border: none;
-  border-radius: 5px;
+  border-radius: 30px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 
   &:hover {
-    background-color: ${color.darkBlue};
+    background-color: #21dbc1;
+    transform: scale(1.05);
   }
 
   img {
@@ -22,9 +23,10 @@ const Style = styled.button`
   }
 
   h1 {
-    color: white;
+    font-size: 1.5em;
   }
 `;
+
 
 const Button = (props) => {
   return (
