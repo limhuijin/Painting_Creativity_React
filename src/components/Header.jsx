@@ -6,14 +6,31 @@ const Style = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 4rem;
-  padding: 20px 40px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  height: 5rem;
+  padding: 0 40px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .logo h2 {
+    font-weight: 400;
+  }
 
   ul {
     display: flex;
     align-items: center;
     gap: 2.5rem;
+    height: 100%;
     list-style: none;
     z-index: 1000;
   }
@@ -23,19 +40,21 @@ const Style = styled.header`
     color: black;
     transition: color 0.3s ease;
     font-size: 1.2em;
+    position: relative;
   }
 
   ul a:not(.active):hover {
     color: ${color.blue};
   }
 
-  ul a.active {
-    color: ${color.blue};
-  }
-
-  & > a {
-    font-weight: bold;
-    font-size: 1.5em;
+  ul a.active:before {
+    content: "";
+    width: 150%;
+    height: 10px;
+    position: absolute;
+    bottom: -28px;
+    left: -25%;
+    background-color: lime;
   }
 
   .menu {
@@ -128,7 +147,10 @@ const Header = () => {
 
   return (
     <Style>
-      <Link to="/">로고</Link>
+      <Link to="/" className="logo">
+        <img src="./src/assets/sample-logo.png" alt="logo" />
+        <h2>Creativity</h2>
+      </Link>
       <ul>
         <li>
           <NavLink to="/about">소개</NavLink>
