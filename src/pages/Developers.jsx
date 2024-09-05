@@ -1,144 +1,150 @@
 import styled from "styled-components";
-import PropTypes from "prop-types";
 
 const Style = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-  gap: 4rem;
-  text-align: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 80px;
+  margin-bottom: 160px;
+  position: relative;
+  gap: 60px;
 
-  .team-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+  &:before {
+    content: "";
     width: 100%;
-  }
-
-  #team-logo {
-    width: min(20vw, 200px);
-  }
-
-  .team-container h1 {
-    font-size: 1.5em;
-  }
-
-  .team-container p {
-    font-size: 1em;
-    color: #888888;
-  }
-
-  .developer-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-  }
-
-  // 세로모드 모바일
-  @media (max-width: 991px) and (orientation: portrait) {
-    .developer-container {
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .developer-container > div {
-      width: 80%;
-    }
-  }
-`;
-
-const StyledCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 2px solid #888888;
-  border-radius: 10px;
-  padding: 1em;
-  width: 20%;
-  gap: 0.5em;
-
-  img {
-    width: 50%;
-    border-radius: 50%;
+    height: 80%;
+    background-color: #99f5e8;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    z-index: -1;
   }
 
   p {
-    color: #888888;
+    font-size: 1em;
+    line-height: 2em;
+    color: #888;
   }
 
-  .social-container {
+  .project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .project img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15) inset;
+    background-color: white;
+  }
+
+  .project h1 {
+    letter-spacing: 0.1em;
+    font-weight: 400;
+  }
+
+  .cards {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-top: 0.5em;
+    gap: 80px;
+    flex-wrap: wrap;
   }
 
-  a img {
-    width: 15%;
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 15vw;
+    min-width: 250px;
+    padding: 60px 40px;
+    border-radius: 25px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    gap: 10px;
+    text-align: center;
+    background-color: white;
+  }
+
+  .card:before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    top: 15px;
+    left: 15px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #c8ff96;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15) inset;
+  }
+
+  .card img {
+    width: 150px;
+    border-radius: 50%;
+  }
+
+  .card h2,
+  .card #description {
+    margin-top: 10px;
+  }
+
+  .card h2 {
+    font-size: 1.8em;
+  }
+
+  .card p {
+    font-size: 0.85em;
   }
 `;
-
-const Card = (props) => {
-  return (
-    <StyledCard>
-      <img src={props.image} alt="profile image" />
-      <p>{props.position}</p>
-      <h1>{props.name}</h1>
-      <p>{props.introduction}</p>
-      <div className="social-container">
-        <a href={props.github} target="_blank">
-          <img src="../src/assets/github.svg" alt="github" />
-        </a>
-      </div>
-    </StyledCard>
-  );
-};
-Card.propTypes = {
-  image: PropTypes.string,
-  position: PropTypes.string,
-  name: PropTypes.string,
-  introduction: PropTypes.string,
-  github: PropTypes.string,
-};
 
 const Developers = () => {
   return (
     <Style>
-      <div className="team-container">
-        <img src="../src/assets/sample-logo.png" alt="logo" id="team-logo" />
-        <h1>Team Name</h1>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat
-          repellendus laudantium optio incidunt. Magni eos, ullam corporis minus
-          quibusdam soluta sint ratione iusto. Officia, ab eveniet sequi rem
-          pariatur soluta.
-        </p>
+      <div className="project">
+        <img src="./src/assets/sample-logo.png" alt="logo"></img>
+        <h1>Creativision</h1>
+        <p>프로젝트</p>
       </div>
-      <div className="developer-container">
-        <Card
-          image="../src/assets/sample-profile.png"
-          position="Frontend Developer"
-          name="John Doe"
-          introduction="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat repellendus laudantium optio incidunt."
-          github=""
-        />
-        <Card
-          image="../src/assets/sample-profile.png"
-          position="Frontend Developer"
-          name="John Doe"
-          introduction="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat repellendus laudantium optio incidunt."
-          github=""
-        />
-        <Card
-          image="../src/assets/sample-profile.png"
-          position="Frontend Developer"
-          name="John Doe"
-          introduction="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat repellendus laudantium optio incidunt."
-          github=""
-        />
+      <div className="cards">
+        <div className="card">
+          <img src="./src/assets/vactor0911.png" alt="profile"></img>
+          <h2>Vactor0911</h2>
+          <p id="role">프론트</p>
+          <p id="description">
+            O&rsquo;er the land of the free and the homeof the brave! And where
+            is that band who so vauntingly
+          </p>
+        </div>
+        <div className="card">
+          <img src="./src/assets/limhuijin.png" alt="profile"></img>
+          <h2>limhuijin</h2>
+          <p id="role">서버 및 클라우드</p>
+          <p id="description">
+            O&rsquo;er the land of the free and the homeof the brave! And where
+            is that band who so vauntingly
+          </p>
+        </div>
+        <div className="card">
+          <img src="./src/assets/heoseonjin.png" alt="profile"></img>
+          <h2>HeoSeonJin0504</h2>
+          <p id="role">프론트</p>
+          <p id="description">
+            O&rsquo;er the land of the free and the homeof the brave! And where
+            is that band who so vauntingly
+          </p>
+        </div>
+        <div className="card">
+          <img src="./src/assets/sample-profile.png" alt="profile"></img>
+          <h2>J_doyoon</h2>
+          <p id="role">디자이너</p>
+          <p id="description">
+            O&rsquo;er the land of the free and the homeof the brave! And where
+            is that band who so vauntingly
+          </p>
+        </div>
       </div>
     </Style>
   );
