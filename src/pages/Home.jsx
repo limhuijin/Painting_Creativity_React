@@ -12,7 +12,7 @@ const Style = styled.div`
   padding: 0 40px;
   overflow: hidden;
 
-  background-image: url("/src/assets/background.jpg");
+  background-image: url("/src/assets/backgroundtest.jpg");
   background-position: bottom;
   background-repeat: no-repeat;
   background-color: rgba(255, 255, 255, 0.7);
@@ -56,14 +56,23 @@ const Style = styled.div`
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     background-color: white;
+    position: relative; /* 카드에 원을 넣기 위해 relative로 설정 */
     opacity: 0;
     animation: fadeIn 2s ease;
     animation-delay: 0.5s;
     animation-fill-mode: forwards;
+    text-align: center;
   }
 
-  .card p {
-    color: #555;
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 8px; 
+    left: 8px;
+    width: 15px;
+    height: 15px;
+    background-color: #99f5e8; 
+    border-radius: 50%; 
   }
 
   @keyframes fadeIn {
@@ -122,7 +131,7 @@ const Home = () => {
           <p>AI 딥러닝을 기반으로 아이들이 그린 그림의 창의성을 분석합니다.</p>
         </div>
         <div className="card">
-          <h3>훙미와 예술적 표현 장려</h3>
+          <h3>흥미와 예술적 표현 장려</h3>
           <p>
             아이들이 그림에 흥미를 갖고 더 자유로운 표현을 할 수 있도록
             장려합니다.
