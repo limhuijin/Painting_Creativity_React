@@ -5,13 +5,20 @@ import styled from "styled-components";
 import { useEffect } from "react";
 
 const Style = styled.main`
-  min-height: calc(100% - 4rem); // 헤더 높이
-  padding: 20px 0;
-  padding-bottom: 4rem; // 푸터 높이
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  word-break: keep-all;
+  width: 100%;
+
+  .main-container {
+    width: 100%;
+    min-height: calc(100% - 4rem); // 헤더 높이
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    word-break: keep-all;
+  }
 `;
 
 function App() {
@@ -35,16 +42,18 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header />
-      <Style onClick={closeMenu}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/get-started" element={<GetStarted />} />
-          <Route path="/developers" element={<Developers />} />
-        </Routes>
+      <Style>
+        <Header />
+        <div className="main-container" onClick={closeMenu}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/get-started" element={<GetStarted />} />
+            <Route path="/developers" element={<Developers />} />
+          </Routes>
+        </div>
+        <Footer />
       </Style>
-      <Footer />
     </BrowserRouter>
   );
 }
