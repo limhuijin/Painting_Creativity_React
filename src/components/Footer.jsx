@@ -2,23 +2,96 @@ import styled from "styled-components";
 import GithubButton from "./GithubButton";
 
 const Style = styled.footer`
-  width: 100%;
-  height: 4rem;
+  width: 80%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  z-index: 1000;
-  background-color: #f8f9fa;
-  position: relative;
-  transform: translateY(-100%);
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 80px;
+
+  .top-container {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .hr {
+    width: 100%;
+    height: 3px;
+    background-color: #dbdbdb;
+  }
+
+  .bottom-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .left-container {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+  }
+
+  h2 {
+    font-weight: 400;
+  }
+
+  p {
+    font-size: 1.05em;
+    color: #888;
+    position: relative;
+  }
+
+  .left-container>p: before {
+    content: "";
+    position: absolute;
+    top: -12.5%;
+    left: -15%;
+    width: 3px;
+    height: 125%;
+    background-color: #dbdbdb;
+  }
+
+  // 세로모드 모바일
+  @media (max-width: 991px) and (orientation: portrait) {
+    .bottom-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .left-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  // 가로모드 모바일
+  @media (max-width: 991px) and (orientation: landscape) {
+    .bottom-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
 `;
 
 const Footer = () => {
   return (
     <Style>
-      <h4>푸터</h4>
-      <GithubButton />
+      <div className="top-container">
+        <GithubButton />
+        <GithubButton />
+        <GithubButton />
+      </div>
+      <div className="hr"></div>
+      <div className="bottom-container">
+        <div className="left-container">
+          <h2>Creativision</h2>
+          <p>프로젝트 010-1234-5678</p>
+        </div>
+        <p>@2024_Project_Creativision</p>
+      </div>
     </Style>
   );
 };
