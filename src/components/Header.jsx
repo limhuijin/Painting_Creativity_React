@@ -3,18 +3,19 @@ import styled from "styled-components";
 import { color } from "../theme";
 
 const Style = styled.header`
+  width: 100%;
+  height: 70px;
+  padding: 0 20px;
+  padding-right: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 5rem;
-  padding: 0 40px;
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 
   .logo {
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
   }
 
   .logo img {
@@ -22,39 +23,46 @@ const Style = styled.header`
     height: 60px;
   }
 
-  .logo h2 {
-    font-weight: 400;
+  ul,
+  ul li,
+  ul li a {
+    display: flex;
+    align-items: center;
+    height: 100%;
   }
 
   ul {
-    display: flex;
-    align-items: center;
-    gap: 2.5rem;
-    height: 100%;
-    list-style: none;
+    gap: 60px;
     z-index: 1000;
+  }
+
+  ul li {
+    list-style: none;
   }
 
   a {
     text-decoration: none;
     color: black;
-    transition: color 0.3s ease;
-    font-size: 1.2em;
     position: relative;
   }
 
-  ul a:not(.active):hover {
-    color: ${color.blue};
+  a h1,
+  a h2 {
+    font-weight: 400;
   }
 
-  ul a.active:before {
+  a.active:before {
     content: "";
-    width: 150%;
-    height: 10px;
     position: absolute;
-    bottom: -28px;
-    left: -25%;
-    background-color: lime;
+    width: 125%;
+    height: 8px;
+    bottom: 0;
+    left: -12.5%;
+    background-color: ${color.green};
+  }
+
+  ul a:hover {
+    color: ${color.green};
   }
 
   .menu {
@@ -63,21 +71,29 @@ const Style = styled.header`
 
   // 세로모드 모바일
   @media (max-width: 991px) and (orientation: portrait) {
-    ul:not(.open) {
+    ul {
+      position: absolute;
       display: none;
+      flex-direction: column;
+      gap: 5px;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      height: auto;
+      padding: 10px 20px;
+      padding-bottom: 20px;
+      background-color: white;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      border-top: 3px solid #dbdbdb;
+    }
+
+    ul li,
+    ul li a {
+      height: 4em;
     }
 
     ul.open {
-      position: absolute;
-      top: 4rem;
-      left: 0;
-      width: 100%;
-      padding: 10px;
-      flex-direction: column;
-      justify-content: center;
-      background-color: white;
-      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-      gap: 1.5rem;
+      display: flex;
     }
 
     .menu {
@@ -149,17 +165,23 @@ const Header = () => {
     <Style>
       <Link to="/" className="logo">
         <img src="./src/assets/sample-logo.png" alt="logo" />
-        <h2>Creativity</h2>
+        <h1>Creativity</h1>
       </Link>
       <ul>
         <li>
-          <NavLink to="/about">소개</NavLink>
+          <NavLink to="/about">
+            <h2>소개</h2>
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/get-started">시작하기</NavLink>
+          <NavLink to="/get-started">
+            <h2>시작하기</h2>
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/developers">개발자</NavLink>
+          <NavLink to="/developers">
+            <h2>개발자</h2>
+          </NavLink>
         </li>
       </ul>
       <Menu className="menu" onClick={toggleMenu}>
