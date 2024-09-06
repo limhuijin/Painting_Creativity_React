@@ -121,7 +121,7 @@ const Developers = () => {
         <div className="card">
           <img src="./src/assets/limhuijin.png" alt="profile"></img>
           <h2>limhuijin</h2>
-          <p id="role">서버 및 클라우드</p>
+          <p id="role">서버 및 AI</p>
           <p id="description">
             O&rsquo;er the land of the free and the homeof the brave! And where
             is that band who so vauntingly
@@ -137,7 +137,7 @@ const Developers = () => {
           </p>
         </div>
         <div className="card">
-          <img src="./src/assets/sample-profile.png" alt="profile"></img>
+          <img src="./src/assets/j_doyoon.png" alt="profile"></img>
           <h2>J_doyoon</h2>
           <p id="role">디자이너</p>
           <p id="description">
