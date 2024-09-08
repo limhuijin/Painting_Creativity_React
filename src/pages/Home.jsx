@@ -12,10 +12,11 @@ const Style = styled.div`
   padding: 0 40px;
   overflow: hidden;
 
-  background-image: url("/src/assets/backgroundtest.jpg");
-  background-position: bottom;
+  background-image: url("/src/assets/background.jpg");
+  background-position: top;
   background-repeat: no-repeat;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.35);
   background-blend-mode: lighten;
 
   .main-container {
@@ -31,11 +32,13 @@ const Style = styled.div`
     font-weight: 500;
   }
 
+  /* 일단 주석처리
   .main-container > h1,
   .main-container > p {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
   }
+  */
 
   .bottom-container {
     display: flex;
