@@ -12,12 +12,11 @@ const Style = styled.main`
 
   .main-container {
     width: 100%;
-    min-height: calc(100% - 4rem); // 헤더 높이
-    padding: 20px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     word-break: keep-all;
+    margin-bottom: 40px;
   }
 `;
 

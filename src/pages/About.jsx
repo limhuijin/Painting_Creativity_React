@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { color } from "../theme";
+import Button from "../components/Button";
 
 const Style = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ const Style = styled.div`
     display: block;
     width: calc(100% + 10px);
     height: 0.1em;
-    background-color: ${color.blue};
+    background-color: #21dbc1;
     position: relative;
     top: 5px;
     left: -10px;
@@ -32,7 +32,7 @@ const Style = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  width: 50%;
+  width: 30%;
   margin-right: 20px;
   position: relative;
 
@@ -54,7 +54,7 @@ const ImageContainer = styled.div`
 `;
 
 const TextContainer = styled.div`
-  width: 60%;
+  width: 70%;
 
   h2 {
     font-size: 2rem;
@@ -78,7 +78,7 @@ const TextContainer = styled.div`
   }
 
   li::marker {
-    color: ${color.blue};
+    color: #21dbc1;
     font-weight: bold;
     font-size: 1.25em;
   }
@@ -115,34 +115,15 @@ const ButtonContainer = styled.div`
   }
 `;
 
-const StyledButton = styled(Link)`
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #0056b3;
-  }
-
-  @media (max-width: 991px) and (orientation: portrait) {
-    width: 80%;
-    text-align: center;
-  }
-`;
-
 const About = () => {
   return (
     <Style>
       <ImageContainer>
         <img src="/src/assets/about.jpg" alt="Program Image" />
         <ButtonContainer>
-          <StyledButton to="/get-started">실습하기</StyledButton>
+          <Link to="/get-started" style={{ textDecoration: "none" }}>
+            <Button text="시작하기" />
+          </Link>
         </ButtonContainer>
       </ImageContainer>
       <TextContainer>
