@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { color } from "../theme";
 import Button from "../components/Button";
 
 const Style = styled.div`
