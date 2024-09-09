@@ -51,14 +51,20 @@ const Style = styled.header`
     font-weight: 400;
   }
 
-  a.active:before {
+  a:before {
     content: "";
     position: absolute;
-    width: 125%;
+    width: 0;
     height: 8px;
     bottom: 0;
-    left: -12.5%;
+    left: 50%;
     background-color: ${color.green};
+    transition: 0.3s ease;
+  }
+
+  a.active:before {
+    width: 125%;
+    left: -12.5%;
   }
 
   ul a:hover {
