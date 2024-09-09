@@ -108,8 +108,12 @@ const Style = styled.div`
     }
   }
 
-  @media (max-width: 768px) {
+  // 세로모드 모바일
+  @media (max-width: 991px) and (orientation: portrait) {
+    width: 100%;
+    height: auto;
     gap: 50px;
+    padding: 0 10px;
 
     .bottom-container {
       gap: 1em;
