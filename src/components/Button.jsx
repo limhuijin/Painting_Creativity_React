@@ -27,7 +27,7 @@ const Style = styled.button`
 
 const Button = (props) => {
   return (
-    <Style style={{gap: (props.image ? "1em" : "0")}}>
+    <Style style={{gap: (props.image ? "1em" : "0")}} onClick={props.onClick} >
       <img src={props.image} />
       <h1>{props.text}</h1>
     </Style>
@@ -36,6 +36,7 @@ const Button = (props) => {
 Button.propTypes = {
   image: PropTypes.string,
   text: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
 };
 
 export default Button;
