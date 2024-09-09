@@ -1,19 +1,20 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
+import { color } from "../theme";
 
 const Style = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
+  width: 70%;
+  height: 100vh;
   min-height: calc(100vh - 10rem);
-  padding: 0 40px;
   overflow: hidden;
 
-  background-image: url("/src/assets/background.jpg");
-  background-position: top;
+  background-image: url("/src/assets/background.png");
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: rgba(255, 255, 255, 0.35);
@@ -27,18 +28,15 @@ const Style = styled.div`
     text-align: center;
   }
 
+  .main-container > h1 {
+    font-size: 3em;
+    font-weight: 400;
+  }
+
   .main-container p {
     font-size: 1.2em;
     font-weight: 500;
   }
-
-  /* 일단 주석처리
-  .main-container > h1,
-  .main-container > p {
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-  }
-  */
 
   .bottom-container {
     display: flex;
@@ -54,12 +52,12 @@ const Style = styled.div`
     flex-direction: column;
     gap: 20px;
     width: 20vw;
-    padding: 20px;
+    padding: 40px 10px;
     line-height: 2em;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     background-color: white;
-    position: relative; /* 카드에 원을 넣기 위해 relative로 설정 */
+    position: relative;
     opacity: 0;
     animation: fadeIn 2s ease;
     animation-delay: 0.5s;
@@ -68,14 +66,24 @@ const Style = styled.div`
   }
 
   .card::before {
-    content: '';
+    content: "";
     position: absolute;
-    top: 8px; 
-    left: 8px;
-    width: 15px;
-    height: 15px;
-    background-color: #99f5e8; 
-    border-radius: 50%; 
+    top: 10px;
+    left: 10px;
+    width: 16px;
+    height: 16px;
+    background-color: ${color.green};
+    border-radius: 50%;
+  }
+
+  .card h1 {
+    font-weight: 400;
+    margin-top: 10px;
+  }
+
+  .card p {
+    color: ${color.lightGray};
+    text-wrap: balance;
   }
 
   @keyframes fadeIn {
@@ -130,18 +138,18 @@ const Home = () => {
       </div>
       <div className="bottom-container">
         <div className="card">
-          <h3>AI 딥러닝 기반</h3>
+          <h1>AI 딥러닝 기반</h1>
           <p>AI 딥러닝을 기반으로 아이들이 그린 그림의 창의성을 분석합니다.</p>
         </div>
         <div className="card">
-          <h3>흥미와 예술적 표현 장려</h3>
+          <h1>흥미와 예술적 표현 장려</h1>
           <p>
             아이들이 그림에 흥미를 갖고 더 자유로운 표현을 할 수 있도록
             장려합니다.
           </p>
         </div>
         <div className="card">
-          <h3>맞춤형 창의성 분석</h3>
+          <h1>맞춤형 창의성 분석</h1>
           <p>
             그림을 통해 창의성을 분석하여 필요한 지원을 제공받을 수 있도록
             돕습니다.
