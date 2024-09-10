@@ -13,6 +13,8 @@ const Style = styled.button`
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 10px 10px 14px rgba(0, 0, 0, 0.4);
+  font-weight: bold;
+  font-size: 1.5em;
 
   &:hover {
     background-color: ${color.darkGreen};
@@ -24,12 +26,11 @@ const Style = styled.button`
   }
 `;
 
-
 const Button = (props) => {
   return (
-    <Style style={{gap: (props.image ? "1em" : "0")}} onClick={props.onClick} >
-      <img src={props.image} />
-      <h1>{props.text}</h1>
+    <Style style={{ gap: props.image ? "1em" : "0" }} onClick={props.onClick}>
+      {props.image && <img src={props.image} />}
+      {props.text}
     </Style>
   );
 };
