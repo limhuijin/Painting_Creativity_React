@@ -47,7 +47,7 @@ const Style = styled.div`
   }
 
   .image-wrapper img {
-    width: 70%;
+    height: auto;
   }
 
   .alert {
