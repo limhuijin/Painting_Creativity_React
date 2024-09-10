@@ -1,181 +1,198 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
+import { color } from "../theme";
 
 const Style = styled.div`
   display: flex;
-  align-items: flex-start;
+  justify-content: center;
+  gap: 100px;
+  padding: 200px 0 100px 0;
+  margin-bottom: 100px;
+  position: relative;
 
-  @media (max-width: 991px) and (orientation: portrait) {
+  &:before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-bottom-right-radius: 27%;
+    background-color: #e3ffee;
+    z-index: -10;
+  }
+
+  .circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    background-color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1) inset;
+    position: absolute;
+    z-index: -5;
+  }
+  .circle:nth-child(1) {
+    top: 180px;
+    left: 15%;
+    width: 100px;
+    height: 100px;
+  }
+  .circle:nth-child(2) {
+    top: 195px;
+    left: 12.5%;
+    width: 40px;
+    height: 40px;
+  }
+  .circle:nth-child(3) {
+    top: 140px;
+    left: 18%;
+    width: 30px;
+    height: 30px;
+  }
+  .circle:nth-child(4) {
+    top: 160px;
+    left: 21%;
+    width: 20px;
+    height: 20px;
+  }
+
+  .container {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
-  }
-`;
-
-const LeftContainer = styled.div`
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #e9faf1; /* 배경 색상 */
-  border-bottom-right-radius: 300px;
-  
-
-  @media (max-width: 991px) and (orientation: portrait) {
-    width: 100%;
-    align-items: center;
+    width: 40%;
+    line-height: 1.5;
     text-align: center;
-    h2 {
-      font-size: 2rem;
-    }
+    gap: 10px;
   }
-`;
 
-const RightContainer = styled.div`
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @media (max-width: 991px) and (orientation: portrait) {
-    width: 100%;
-    align-items: center;
+  .container.left {
+    align-items: start;
+    text-align: left;
+    padding-left: 10%;
   }
-`;
+  .container.right {
+    gap: 40px;
+  }
 
-const Image = styled.img`
-  width: 80%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 0 auto; 
-`;
+  img {
+    width: 25vw;
+    margin: 20px 0;
+    border-radius: 20px;
+    border: 3px solid ${color.lightGray};
+  }
 
-const TextContainer = styled.div`
-  text-align: center;
-  
   h2 {
-    margin: 20px auto; 
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-
-  h3 {
-    font-size: 1.8em;
-    margin: 20px auto;
-    border-top: 7px solid #d3d3d3; /* 꾸미기 */
-    border-bottom: 7px solid #d3d3d3; 
-    max-width: 40%;
+    font-weight: 500;
   }
 
   p {
-    font-size: 1.2rem;
-    line-height: 1.2;
-    margin-bottom: 5px; 
+    color: ${color.lightGray};
   }
 
-  strong {
+  a {
+    margin-top: 100px;
+    align-self: center;
+    text-decoration: none;
+  }
+
+  #title {
+    position: relative;
+  }
+
+  #title span {
+    position: absolute;
+    width: 140%;
+    height: 5px;
+    top: -20%;
+    left: -20%;
+    background-color: ${color.lightGray};
+    border-radius: 50px;
+  }
+
+  #title span:nth-child(2) {
+    top: auto;
+    bottom: -20%;
+  }
+
+  .image-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    position: relative;
+  }
+
+  .image-wrapper:before {
+    content: "1.";
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 7%;
+    height: auto;
+    padding: 0 10px;
+    text-align: right;
+    font-size: 1.2em;
+    font-weight: 400;
+    color: white;
+    background-color: #444;
+  }
+
+  .image-wrapper:nth-child(4):before {
+    content: "2.";
+  }
+
+  #arrow {
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 3em;
   }
-
-  ul, ol {
-    list-style-position: inside; /* 중앙정렬되게 */
-  }
-
-  ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    font-size: 1.2rem;
-  }
-
-  li::marker {
-    color: #21dbc1;
-    font-weight: bold;
-    font-size: 1.25em;
-  }
-
-  @media (max-width: 991px) and (orientation: portrait) {
-    text-align: center;
-
-    p, ul {
-      font-size: 1rem;
-    }
-  }
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-
-  @media (max-width: 991px) and (orientation: portrait) {
-    justify-content: center;
-    width: 100%;
-  }
-`;
-
-const Arrow = styled.div` /* 화살표 */
-  font-size: 70px;
-  margin: 40px 0px;
-  line-height: 0;
-  text-align: center;
-`;
-
-const LineBreak = styled.div`
-  height: 15px;
 `;
 
 const About = () => {
   return (
     <Style>
-      <LeftContainer>
-        <TextContainer>
-          <h2>AI 창의력 분석 자동학습 딥러닝</h2>
-          <p>어린이 그림 창의성 분석 프로그램에 오신 것을 환영합니다!</p>
-          <p>본 프로그램은 아이들의 그림을 통해 창의력을 분석하는 프로그램입니다.</p>
-          <p>아이의 그림을 업로드하면, 프로그램이 창의적 사고와 </p>
-          <p>예술적 발달에 대한 포괄적인 분석을 제공합니다.</p>
-          <Image src="/src/assets/about.jpg" alt="" />
-          <h2>프로그램의 장점</h2>
-          <ul>
-            <li>
-              <strong>개인 맞춤형 창의성 인사이트</strong>
-              <p>아이의 고유한 창의적 강점과 개선이 필요한 부분을 강조하는 그래프를 제공합니다.</p>
-            </li>
-            <li>
-              <strong>흥미성과 예술적 표현 장려</strong>
-              <p>아이들이 그림을 통해 자신을 표현하는 것을 장려하며 창의성 및 상상력을 발전시킵니다.</p>
-            </li>
-            <li>
-              <strong>AI 딥러닝 기반</strong>
-              <p>AI 딥러닝 분석을 통해 아이들의 창의성을 평가합니다.</p>
-            </li>
-          </ul>
-          <ButtonContainer>
-          <Link to="/get-started" style={{ textDecoration: "none" }}>
-            <Button text="시작하기" />
-          </Link>
-        </ButtonContainer>
-        <LineBreak/>
-        </TextContainer>        
-      </LeftContainer>
-
-      <RightContainer>
-        <TextContainer>
-          <h3>프로그램 사용 방법</h3>
-          <Image src="/src/assets/about2.jpg" alt="" />
-          <LineBreak />
-          <strong>1. 사진 업로드</strong>
-          <p>'이미지 열기' 버튼을 눌러 아이들의 그림을 업로드 해주세요.</p>
-          <Arrow>&darr;</Arrow>
-          <Image src="/src/assets/about3.jpg" alt="" />
-          <LineBreak />
-          <strong>2. 분석 시작</strong>
-          <p>'분석하기' 버튼을 눌러 창의성을 분석해주세요.</p>
-        </TextContainer>
-      </RightContainer>
+      <span className="circle"></span>
+      <span className="circle"></span>
+      <span className="circle"></span>
+      <span className="circle"></span>
+      <div className="container left">
+        <h1>AI 창의력 분석 자동학습 딥러닝</h1>
+        <p>
+          프로그램 설명. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사
+          우리나라 만세 무궁화 삼천리 화려강산 대한사람 대한으로...
+        </p>
+        <img src="./src/assets/about3.jpg" />
+        <h1>프로그램 장점을 말하다..</h1>
+        <p>
+          프로그램 설명. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사
+          우리나라 만세 무궁화 삼천리 화려강산 대한사람 대한으로 프로그램 설명.
+          동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화
+          삼천리 화려강산 대한사람 대한으로 보우하사 우리나라화려강산 대한사람
+          대한으로 보우하사 우리나라
+        </p>
+        <Link to="/get-started">
+          <Button text="시작하기" />
+        </Link>
+      </div>
+      <div className="container right">
+        <h1 id="title">
+          <span></span>
+          프로그램 사용 방법
+          <span></span>
+        </h1>
+        <div className="image-wrapper">
+          <img src="./src/assets/about3.jpg" />
+          <div className="text-wrapper">
+            <h2>1. 사진 업로드</h2>
+            <p>ex&#41; PNG, JPEG, JPG ...</p>
+          </div>
+        </div>
+        <h1 id="arrow">⬇</h1>
+        <div className="image-wrapper">
+          <img src="./src/assets/about3.jpg" />
+          <h2>2. 분석 시작</h2>
+        </div>
+      </div>
     </Style>
   );
 };
