@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import GithubButton from "./GithubButton";
+import { GithubButton, TStory } from "./Icons";
+import { color } from "../theme";
 
 const Style = styled.footer`
   width: 80%;
@@ -14,6 +15,10 @@ const Style = styled.footer`
     justify-content: right;
     align-items: center;
     gap: 20px;
+  }
+
+  .top-container a img {
+    height: 40px;
   }
 
   .hr {
@@ -31,7 +36,11 @@ const Style = styled.footer`
   .left-container {
     display: flex;
     align-items: center;
-    gap: 80px;
+    gap: 60px;
+  }
+
+  .left-container h2 {
+    color: ${color.lightGray}
   }
 
   h2 {
@@ -40,7 +49,7 @@ const Style = styled.footer`
 
   p {
     font-size: 1.05em;
-    color: #888;
+    color: ${color.lightGray};
     position: relative;
   }
 
@@ -80,15 +89,14 @@ const Footer = () => {
   return (
     <Style>
       <div className="top-container">
-        <GithubButton />
-        <GithubButton />
+        <TStory />
         <GithubButton />
       </div>
       <div className="hr"></div>
       <div className="bottom-container">
         <div className="left-container">
-          <h2>Creativision</h2>
-          <p>프로젝트 010-1234-5678</p>
+          <h2 className="noto-sans">Creativision</h2>
+          <p>프로젝트 gabriel227@naver.com</p>
         </div>
         <p>@2024_Project_Creativision</p>
       </div>

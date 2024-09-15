@@ -45,8 +45,7 @@ const Style = styled.header`
     color: black;
     position: relative;
   }
-
-  a h1,
+    
   a h2 {
     font-weight: 400;
   }
@@ -171,7 +170,7 @@ const Header = () => {
     <Style>
       <Link to="/" className="logo">
         <img src="./src/assets/sample-logo.png" alt="logo" />
-        <h1>Creativity</h1>
+        <h1 className="wavve-pado">Creativity</h1>
       </Link>
       <ul>
         <li>

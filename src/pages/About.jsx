@@ -83,6 +83,10 @@ const Style = styled.div`
     border: 3px solid ${color.lightGray};
   }
 
+  h1 {
+    font-size: 2.5em;
+  }
+
   h2 {
     font-weight: 500;
   }
@@ -156,13 +160,13 @@ const About = () => {
       <span className="circle"></span>
       <span className="circle"></span>
       <div className="container left">
-        <h1>AI 창의력 분석 자동학습 딥러닝</h1>
+        <h1 className="wavve-pado">Ai 창의력 분석 자동학습 딥러닝</h1>
         <p>
           프로그램 설명. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사
           우리나라 만세 무궁화 삼천리 화려강산 대한사람 대한으로...
         </p>
         <img src="./src/assets/about3.jpg" />
-        <h1>프로그램 장점을 말하다..</h1>
+        <h1 className="wavve-pado">프로그램 장점을 말하다..</h1>
         <p>
           프로그램 설명. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사
           우리나라 만세 무궁화 삼천리 화려강산 대한사람 대한으로 프로그램 설명.
