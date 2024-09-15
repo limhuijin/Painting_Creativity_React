@@ -3,6 +3,7 @@ import { Header, Footer } from "./components";
 import { Home, About, GetStarted, Developers } from "./pages";
 import styled from "styled-components";
 import { useEffect } from "react";
+import { color } from "./theme";
 
 const Style = styled.main`
   display: flex;
@@ -17,6 +18,10 @@ const Style = styled.main`
     align-items: center;
     word-break: keep-all;
     margin-bottom: 40px;
+  }
+
+  .light-gray {
+    color: ${color.lightGray};
   }
 `;
 
