@@ -7,11 +7,27 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "WavvePADO";
+  src: url("./assets/fonts/WavvePADO-Regular.eot") format("eot");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: BMJUA, sans-serif;
+}
+
+.noto-sans {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.wavve-pado {
+  font-family: "WavvePADO", 'Courier New';
+  word-spacing: -0.4em;
 }
 
 p {
