@@ -8,7 +8,7 @@ const Style = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 70%;
+  width: 100%;
   height: 100vh;
   min-height: calc(100vh - 10rem);
   overflow: hidden;
@@ -23,6 +23,7 @@ const Style = styled.div`
   .main-container {
     display: flex;
     flex-direction: column;
+    margin: 20px 0;
     gap: 40px;
     align-items: center;
     text-align: center;
