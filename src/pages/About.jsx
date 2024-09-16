@@ -88,7 +88,7 @@ const Style = styled.div`
   }
 
   h2 {
-    font-weight: 500;
+    font-weight: bold;
   }
 
   p {
@@ -101,11 +101,11 @@ const Style = styled.div`
     text-decoration: none;
   }
 
-  #title {
+  .right > h1 {
     position: relative;
   }
 
-  #title span {
+  .right > h1 span {
     position: absolute;
     width: 140%;
     height: 5px;
@@ -115,7 +115,7 @@ const Style = styled.div`
     border-radius: 50px;
   }
 
-  #title span:nth-child(2) {
+  .right > h1 span:nth-child(2) {
     top: auto;
     bottom: -20%;
   }
@@ -148,7 +148,7 @@ const Style = styled.div`
     background-color: #444;
   }
 
-  .image-wrapper:nth-child(4):before {
+  .image-wrapper:nth-child(3):before {
     content: "2.";
   }
 
@@ -167,26 +167,27 @@ const About = () => {
       <span className="circle"></span>
       <span className="circle"></span>
       <div className="container left">
-        <h1 className="wavve-pado">Ai 창의력 분석 자동학습 딥러닝</h1>
-        <p>
-          프로그램 설명. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사
-          우리나라 만세 무궁화 삼천리 화려강산 대한사람 대한으로...
-        </p>
+        <h1 className="wavve-pado">아이들의 그림을 통한 창의력 분석 모델</h1>
+        <p>아이들의 그림을 업로드하고 창의력을 평가해보세요!</p>
         <img src="./src/assets/about3.jpg" />
         <h1 className="wavve-pado">프로그램 장점을 말하다..</h1>
         <p>
-          프로그램 설명. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사
-          우리나라 만세 무궁화 삼천리 화려강산 대한사람 대한으로 프로그램 설명.
-          동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화
-          삼천리 화려강산 대한사람 대한으로 보우하사 우리나라화려강산 대한사람
-          대한으로 보우하사 우리나라
+          아이들은 사람, 동물, 식물, 음식, 로봇, 건물 등 다양한 것들에 관심을
+          가지고 다양한 관심사의 그림을 그립니다. 또한 아이들은 성장해가며
+          그림의 주제와 색, 스토리 등이 다채롭게 변하게 됩니다. 그렇다면 이런
+          그림들을 통해 아이들의 그림 숙련도를 평가할 수 있지 않을까요? <br />
+          <br />
+          Creativision는 이러한 생각에서 탄생하였습니다. <br />
+          AI가 어린이의 그림을
+          통해 섬세함, 스토리텔링 능력, 객체의 다양성, 공간 활용, 표현력 총
+          5개의 항목을 수치화해줍니다.
         </p>
         <Link to="/get-started">
           <Button text="시작하기" />
         </Link>
       </div>
       <div className="container right">
-        <h1 id="title">
+        <h1 className="wavve-pado">
           <span></span>
           프로그램 사용 방법
           <span></span>
@@ -195,14 +196,14 @@ const About = () => {
           <div className="image-wrapper">
             <img src="./src/assets/about3.jpg" />
             <div className="text-wrapper">
-              <h2>1. 사진 업로드</h2>
+              <h2 className="wavve-pado">1. 사진 업로드</h2>
               <p>ex&#41; PNG, JPEG, JPG ...</p>
             </div>
           </div>
           <h1 id="arrow">⬇</h1>
           <div className="image-wrapper">
             <img src="./src/assets/about3.jpg" />
-            <h2>2. 분석 시작</h2>
+            <h2 className="wavve-pado">2. 분석 시작</h2>
           </div>
         </div>
       </div>

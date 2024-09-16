@@ -124,8 +124,14 @@ const Developers = () => {
           <h2 className="noto-sans">limhuijin</h2>
           <p id="role">서버 및 클라우드</p>
           <p id="description">
-            O&rsquo;er the land of the free and the homeof the brave! And where
-            is that band who so vauntingly
+            Mokwon Univ. Computer Science 22 <br />
+            Machine Learning Engineer <br />
+            <a href="https://gabriel227.tistory.com/" target="_blank" style={{
+              color: "#666",
+              textDecoration: "none",
+              fontWeight: "bold",
+              textWrap: "nowrap"
+            }}>BLOG : https://gabriel227.tistory.com/</a> <br />
           </p>
         </div>
         <div className="card">

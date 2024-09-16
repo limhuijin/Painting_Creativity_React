@@ -11,7 +11,7 @@ const Style = styled.main`
   align-items: center;
   width: 100%;
 
-  .main-container {
+  & > .main-container {
     width: 100%;
     display: flex;
     justify-content: center;

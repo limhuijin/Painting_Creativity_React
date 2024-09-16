@@ -22,14 +22,13 @@ const Style = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-
+    z-index: -10;
     background-image: url("/src/assets/background.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgba(255, 255, 255, 0.35);
     background-blend-mode: lighten;
-    z-index: -10;
     filter: blur(3px);
   }
 
@@ -39,8 +38,11 @@ const Style = styled.div`
     left: 0%;
     width: 100%;
     height: 40%;
-    background-color: #fff;
-    opacity: 0.5;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 1)
+    );
     z-index: -1;
   }
 
@@ -54,7 +56,7 @@ const Style = styled.div`
     mask-image: url(${Wave});
     mask-repeat: repeat-x;
     mask-position: bottom;
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
     mask-size: 25% 85%;
     animation: wave-move 30s linear infinite;
     z-index: -1;
@@ -77,19 +79,15 @@ const Style = styled.div`
   .main-container {
     display: flex;
     flex-direction: column;
-    margin: 20px 0;
+    margin: 200px 0;
     gap: 40px;
     align-items: center;
     text-align: center;
   }
 
-  .main-container > h1 {
-    font-size: 3em;
+  .main-container #title {
+    font-size: 2.55em;
     font-weight: 400;
-  }
-
-  .main-container p {
-    font-size: 1.2em;
   }
 
   .cards {
@@ -97,7 +95,7 @@ const Style = styled.div`
     justify-content: center;
     margin: 0 20px;
     margin-bottom: 40px;
-    gap: 2em;
+    gap: 4em;
     flex-wrap: wrap;
   }
 
@@ -105,7 +103,7 @@ const Style = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 20vw;
+    width: 20%;
     min-width: 200px;
     padding: 40px 10px;
     line-height: 2em;
@@ -113,7 +111,7 @@ const Style = styled.div`
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     background-color: white;
     position: relative;
-    opacity: 0;
+    opacity: 1;
     animation: fadeIn 2s ease;
     animation-delay: 0.5s;
     animation-fill-mode: forwards;
@@ -131,9 +129,10 @@ const Style = styled.div`
     border-radius: 50%;
   }
 
-  .card h1 {
+  .card #title {
     font-weight: 400;
     margin-top: 10px;
+    font-size: 1.7em;
   }
 
   .card p {
@@ -147,7 +146,7 @@ const Style = styled.div`
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0%);
     }
   }
 
@@ -203,8 +202,10 @@ const Home = () => {
 
       <div></div>
       <div className="main-container">
-        <h1>어린이 그림 창의성 분석 사이트에 오신 것을 환영합니다.</h1>
-        <p className="description">
+        <h1 id="title">
+          어린이 그림 창의성 분석 사이트에 오신 것을 환영합니다.
+        </h1>
+        <p className="gray">
           아이들이 그린 그림을 통해 창의성을 분석해보세요!
         </p>
         <Link to="/get-started" style={{ textDecoration: "none" }}>
@@ -213,21 +214,21 @@ const Home = () => {
       </div>
       <div className="cards">
         <div className="card">
-          <h1>AI 딥러닝 기반</h1>
-          <p className="description">
+          <h1 id="title">AI 딥러닝 기반</h1>
+          <p className="gray">
             AI 딥러닝을 기반으로 아이들이 그린 그림의 창의성을 분석합니다.
           </p>
         </div>
         <div className="card">
-          <h1>흥미와 예술적 표현 장려</h1>
-          <p className="description">
+          <h1 id="title">흥미와 예술적 표현 장려</h1>
+          <p className="gray">
             아이들이 그림에 흥미를 갖고 더 자유로운 표현을 할 수 있도록
             장려합니다.
           </p>
         </div>
         <div className="card">
-          <h1>맞춤형 창의성 분석</h1>
-          <p className="description">
+          <h1 id="title">맞춤형 창의성 분석</h1>
+          <p className="gray">
             그림을 통해 창의성을 분석하여 필요한 지원을 제공받을 수 있도록
             돕습니다.
           </p>
