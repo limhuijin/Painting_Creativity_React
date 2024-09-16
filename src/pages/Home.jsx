@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
-import { color } from "../theme";
+import Wave from "../assets/images/wave.svg";
 
 const Style = styled.div`
   display: flex;
@@ -9,7 +9,8 @@ const Style = styled.div`
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   min-height: calc(100vh - 10rem);
   overflow: hidden;
   position: relative;
@@ -28,8 +29,49 @@ const Style = styled.div`
     background-size: cover;
     background-color: rgba(255, 255, 255, 0.35);
     background-blend-mode: lighten;
-    z-index: -1;
+    z-index: -10;
     filter: blur(3px);
+  }
+
+  .waves {
+    position: absolute;
+    bottom: 0;
+    left: 0%;
+    width: 100%;
+    height: 40%;
+    background-color: #fff;
+    opacity: 0.5;
+    z-index: -1;
+  }
+
+  .waves .wave {
+    position: absolute;
+    top: -40%;
+    left: -100%;
+    width: 200%;
+    height: 40%;
+    -webkit-mask-image: url(${Wave});
+    mask-image: url(${Wave});
+    mask-repeat: repeat-x;
+    mask-position: bottom;
+    background-color: #fff;
+    mask-size: 25% 85%;
+    animation: wave-move 30s linear infinite;
+    z-index: -1;
+  }
+
+  .waves .wave:nth-child(2) {
+    background-color: rgb(240, 255, 240);
+    mask-size: 25% 70%;
+    animation: wave-move 10s linear infinite;
+    z-index: -2;
+  }
+
+  .waves .wave:nth-child(3) {
+    background-color: rgb(255, 240, 240);
+    mask-size: 25% 100%;
+    animation: wave-move 20s linear infinite;
+    z-index: -3;
   }
 
   .main-container {
@@ -50,7 +92,7 @@ const Style = styled.div`
     font-size: 1.2em;
   }
 
-  .bottom-container {
+  .cards {
     display: flex;
     justify-content: center;
     margin: 0 20px;
@@ -64,6 +106,7 @@ const Style = styled.div`
     flex-direction: column;
     gap: 20px;
     width: 20vw;
+    min-width: 200px;
     padding: 40px 10px;
     line-height: 2em;
     border-radius: 20px;
@@ -119,6 +162,15 @@ const Style = styled.div`
     }
   }
 
+  @keyframes wave-move {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(50%);
+    }
+  }
+
   // 세로모드 모바일
   @media (max-width: 991px) and (orientation: portrait) {
     width: 100%;
@@ -126,7 +178,7 @@ const Style = styled.div`
     gap: 50px;
     padding: 0 10px;
 
-    .bottom-container {
+    .cards {
       gap: 1em;
     }
 
@@ -143,6 +195,12 @@ const Style = styled.div`
 const Home = () => {
   return (
     <Style>
+      <div className="waves">
+        <div className="wave" />
+        <div className="wave" />
+        <div className="wave" />
+      </div>
+
       <div></div>
       <div className="main-container">
         <h1>어린이 그림 창의성 분석 사이트에 오신 것을 환영합니다.</h1>
@@ -153,7 +211,7 @@ const Home = () => {
           <Button text="시작하기" />
         </Link>
       </div>
-      <div className="bottom-container">
+      <div className="cards">
         <div className="card">
           <h1>AI 딥러닝 기반</h1>
           <p className="description">
