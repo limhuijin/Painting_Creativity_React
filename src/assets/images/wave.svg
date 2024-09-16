@@ -1,0 +1,14 @@
+<svg
+    class="waves"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="5 24 103 28"
+    preserveAspectRatio="none"
+    shape-rendering="auto"
+>
+    <g>
+        <path
+            id="wave"
+            d="M-120 44 c30 0 58-18 10-10 s28 18 88 19 58-18 78-18 28 18 68 18 v44h-352z"
+        />
+    </g>
+</svg>
