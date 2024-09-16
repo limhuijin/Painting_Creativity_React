@@ -1,15 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
 
 @font-face {
-  font-family: 'BMJUA';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+  font-family: "BMJUA";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "WavvePADO";
-  src: url("./assets/fonts/WavvePADO-Regular.eot") format("eot");
+  src: url("./assets/fonts/WavvePADO-Regular.woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -18,20 +19,27 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: BMJUA, sans-serif;
+  font-family: Noto Sans KR, sans-serif;
   word-break: keep-all;
 }
 
-.noto-sans {
-  font-family: "Noto Sans KR", sans-serif;
+.bmjua {
+  font-family: BMJUA, sans-serif;
 }
 
 .wavve-pado {
-  font-family: "WavvePADO", 'Courier New';
-  word-spacing: -0.4em;
+  font-family: WavvePADO, sans-serif;
 }
 
-p.description {
-  font-family: "Noto Sans KR", sans-serif;
+h1.wavve-pado,
+h2.wavve-pado {
+  font-weight: 400;  
+}
+
+h1#title {
+  font-family: "BMJUA", sans-serif;
+}
+
+p.gray {
   color: #666;
 }

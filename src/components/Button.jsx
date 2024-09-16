@@ -10,6 +10,7 @@ const Style = styled.button`
   border: none;
   border-radius: 50px;
   box-shadow: 10px 10px 14px rgba(0, 0, 0, 0.4);
+  font-family: "BMJUA", sans-serif;
   font-weight: 400;
   font-size: 1.7em;
   gap: ${props => props.$hasIcon ? "10px" : "0"};
