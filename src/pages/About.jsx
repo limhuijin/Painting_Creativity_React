@@ -120,6 +120,12 @@ const Style = styled.div`
     bottom: -20%;
   }
 
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .image-wrapper {
     display: flex;
     gap: 20px;
@@ -149,6 +155,7 @@ const Style = styled.div`
   #arrow {
     font-weight: bold;
     font-size: 3em;
+    align-self: center;
   }
 `;
 
@@ -184,17 +191,19 @@ const About = () => {
           프로그램 사용 방법
           <span></span>
         </h1>
-        <div className="image-wrapper">
-          <img src="./src/assets/about3.jpg" />
-          <div className="text-wrapper">
-            <h2>1. 사진 업로드</h2>
-            <p>ex&#41; PNG, JPEG, JPG ...</p>
+        <div className="wrapper">
+          <div className="image-wrapper">
+            <img src="./src/assets/about3.jpg" />
+            <div className="text-wrapper">
+              <h2>1. 사진 업로드</h2>
+              <p>ex&#41; PNG, JPEG, JPG ...</p>
+            </div>
           </div>
-        </div>
-        <h1 id="arrow">⬇</h1>
-        <div className="image-wrapper">
-          <img src="./src/assets/about3.jpg" />
-          <h2>2. 분석 시작</h2>
+          <h1 id="arrow">⬇</h1>
+          <div className="image-wrapper">
+            <img src="./src/assets/about3.jpg" />
+            <h2>2. 분석 시작</h2>
+          </div>
         </div>
       </div>
     </Style>
