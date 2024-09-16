@@ -19,6 +19,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: BMJUA, sans-serif;
+  word-break: keep-all;
 }
 
 .noto-sans {
@@ -30,6 +31,7 @@
   word-spacing: -0.4em;
 }
 
-p {
+p.description {
   font-family: "Noto Sans KR", sans-serif;
+  color: #666;
 }
