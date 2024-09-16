@@ -12,13 +12,25 @@ const Style = styled.div`
   height: 100vh;
   min-height: calc(100vh - 10rem);
   overflow: hidden;
+  position: relative;
 
-  background-image: url("/src/assets/background.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: rgba(255, 255, 255, 0.35);
-  background-blend-mode: lighten;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: url("/src/assets/background.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(255, 255, 255, 0.35);
+    background-blend-mode: lighten;
+    z-index: -1;
+    filter: blur(3px);
+  }
 
   .main-container {
     display: flex;
@@ -36,7 +48,6 @@ const Style = styled.div`
 
   .main-container p {
     font-size: 1.2em;
-    font-weight: 500;
   }
 
   .bottom-container {
@@ -73,7 +84,7 @@ const Style = styled.div`
     left: 10px;
     width: 16px;
     height: 16px;
-    background-color: ${color.green};
+    background-color: #4eff4e;
     border-radius: 50%;
   }
 
@@ -83,7 +94,6 @@ const Style = styled.div`
   }
 
   .card p {
-    color: ${color.lightGray};
     text-wrap: balance;
   }
 
@@ -136,7 +146,9 @@ const Home = () => {
       <div></div>
       <div className="main-container">
         <h1>어린이 그림 창의성 분석 사이트에 오신 것을 환영합니다.</h1>
-        <p>아이들이 그린 그림을 통해 창의성을 분석해보세요!</p>
+        <p className="description">
+          아이들이 그린 그림을 통해 창의성을 분석해보세요!
+        </p>
         <Link to="/get-started" style={{ textDecoration: "none" }}>
           <Button text="시작하기" />
         </Link>
@@ -144,18 +156,20 @@ const Home = () => {
       <div className="bottom-container">
         <div className="card">
           <h1>AI 딥러닝 기반</h1>
-          <p>AI 딥러닝을 기반으로 아이들이 그린 그림의 창의성을 분석합니다.</p>
+          <p className="description">
+            AI 딥러닝을 기반으로 아이들이 그린 그림의 창의성을 분석합니다.
+          </p>
         </div>
         <div className="card">
           <h1>흥미와 예술적 표현 장려</h1>
-          <p>
+          <p className="description">
             아이들이 그림에 흥미를 갖고 더 자유로운 표현을 할 수 있도록
             장려합니다.
           </p>
         </div>
         <div className="card">
           <h1>맞춤형 창의성 분석</h1>
-          <p>
+          <p className="description">
             그림을 통해 창의성을 분석하여 필요한 지원을 제공받을 수 있도록
             돕습니다.
           </p>

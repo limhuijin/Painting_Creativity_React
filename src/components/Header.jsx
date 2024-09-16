@@ -23,6 +23,10 @@ const Style = styled.header`
     height: 60px;
   }
 
+  .logo h1 {
+    font-weight: 400;
+  }
+
   ul,
   ul li,
   ul li a {
@@ -170,7 +174,7 @@ const Header = () => {
     <Style>
       <Link to="/" className="logo">
         <img src="./src/assets/sample-logo.png" alt="logo" />
-        <h1 className="wavve-pado">Creativity</h1>
+        <h1 className="noto-sans">Creativision</h1>
       </Link>
       <ul>
         <li>

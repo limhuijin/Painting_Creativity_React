@@ -12,8 +12,12 @@ const Style = styled.div`
 
   & > h1 {
     font-size: 3em;
-    font-weight: 400;
     margin: 100px 0;
+  }
+
+  & > h1,
+  & > h1 span {
+    font-weight: 400;
   }
 
   .container {
@@ -47,7 +51,9 @@ const Style = styled.div`
   }
 
   .image-wrapper img {
-    height: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   .alert {
@@ -99,22 +105,31 @@ const GetStarted = () => {
 
   return (
     <Style>
-      <h1>
-        우리 아이가 <span>그린</span> 그림을 <span>통해</span> 창의력을
+      <h1 className="noto-sans">
+        우리 아이가 <span className="noto-sans">그린</span> 그림을 <span className="noto-sans">통해</span> 창의력을
         분석해보세요!
       </h1>
       <div className="container">
         <div className="box">
           <div className="image-wrapper">
-            <img src="./src/assets/sample-image.png" />
+            <img src="./src/assets/sample-image.png" style={{
+              width: "60%",
+              height: "60%",
+              opacity: 0.3,
+            }} />
           </div>
-          <Button text="이미지 열기" />
+          <Button text="이미지 열기" style={{
+            boxShadow: "0 5px 14px rgba(0, 0, 0, 0.4)",
+            backgroundColor: "#fff",
+          }} />
         </div>
         <div className="box result">
           <div className="image-wrapper">
-            <img src="" />
+            {false ? <img src="./src/assets/sample-image.png" /> : <></>}
           </div>
-          <Button text="분석 시작" onClick={displayAlert} />
+          <Button text="분석 시작" onClick={displayAlert} style={{
+            boxShadow: "0 5px 14px rgba(0, 0, 0, 0.4)",
+          }} />
 
           <div className="alert">
             <h2>경고창</h2>
