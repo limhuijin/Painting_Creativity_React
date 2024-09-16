@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Style = styled.div`
+  opacity: 0.6;
   cursor: pointer;
 
   img {
