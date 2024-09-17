@@ -163,8 +163,10 @@ const GetStarted = () => {
             id="imageInput"
             type="file"
             accept="image/*"
-            style={{ display: 'none' }}
-            onChange={GetStartedEvent.handleImageUpload} // GetStartedEvent의 함수와 연결
+            style={{ 
+              display: 'none' 
+            }}
+            onChange={ GetStartedEvent.handleImageUpload }
           />
         </div>
         <div className="box result">
@@ -173,7 +175,10 @@ const GetStarted = () => {
           </div>
           <Button
             text="분석 시작"
-            onClick={displayAlert}
+            onClick={() =>{
+              displayAlert();
+              GetStartedEvent.handleStartAnalysis();
+            }}
             style={{
               boxShadow: "0 5px 14px rgba(0, 0, 0, 0.4)",
             }}

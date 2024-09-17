@@ -16,7 +16,7 @@ function GetStartedEvent() {
       formData.append('file', file);  // FormData에 파일 추가
   
       // 서버에 이미지 업로드 요청
-      axios.post('https://a236-106-255-245-242.ngrok-free.app/upload/', formData)
+      axios.post('https://836c-39-119-134-198.ngrok-free.app/upload/', formData)
         .then(response => {
           setImageURL(response.data.file_url);  // 서버에서 반환된 이미지 URL 저장
           setSelectedImage(URL.createObjectURL(file));  // 로컬에서 미리보기 URL 설정
@@ -31,7 +31,12 @@ function GetStartedEvent() {
   const handleStartAnalysis = () => {
     if (imageURL) {
       // 서버에 이미지 분석 요청
-      axios.get(`https://a236-106-255-245-242.ngrok-free.app/analyze/?image=${encodeURIComponent(imageURL)}`)
+      axios.get(`https://836c-39-119-134-198.ngrok-free.app/analyze/?image=${encodeURIComponent(imageURL)}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': '69420',
+          }
+        })
         .then(response => {
           setAnalysisResult(response.data);  // 분석 결과 저장
         })
@@ -55,17 +60,7 @@ function GetStartedEvent() {
     ],
   };
 
-  return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <input type="file" accept="image/*" onChange={handleImageUpload} />  {/* 이미지 파일 선택 */}
-      <br /><br />
-      <button onClick={handleStartAnalysis}>해석 시작</button>  {/* 분석 시작 버튼 */}
-      
-      {/* 선택된 이미지 미리보기 */}
-      {selectedImage && <img src={selectedImage} alt="Uploaded" style={{ width: '300px', marginTop: '20px' }} />}
-      
-      {/* 분석 결과가 있을 때 차트 표시 */}
-      {analysisResult && (
+  return ((
         <div>
           <h3>분석 결과: {analysisResult.category}</h3>
           <div style={{ width: '700px', height: '300px', margin: '0 auto' }}>
@@ -86,8 +81,7 @@ function GetStartedEvent() {
             />
           </div>
         </div>
-      )}
-    </div>
+      )
   );
 }
 
