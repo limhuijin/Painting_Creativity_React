@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Button from "../components/Button";
-import App from "../index";
+import { useAppFunctions } from "../index";
 
 const Style = styled.div`
   display: flex;
@@ -145,7 +145,7 @@ const GetStarted = () => {
           </div>
           <Button
             text="이미지 열기"
-            onClick={App.handleImageUpload}
+            onClick={useAppFunctions.handleImageUpload}
             style={{
               boxShadow: "0 5px 14px rgba(0, 0, 0, 0.4)",
               backgroundColor: "#fff",
@@ -160,7 +160,7 @@ const GetStarted = () => {
             text="분석 시작"
             onClick={() => {
               displayAlert();
-              handleStartAnalysis();
+              useAppFunctions.handleStartAnalysis();
             }}
             style={{
               boxShadow: "0 5px 14px rgba(0, 0, 0, 0.4)",
