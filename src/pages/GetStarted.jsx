@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Button from "../components/Button";
-import { useAppFunctions } from "../index";
+import { useAppFunctions } from "../util/index";
 
 const Style = styled.div`
   display: flex;
