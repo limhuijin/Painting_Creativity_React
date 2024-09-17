@@ -96,7 +96,7 @@ const Footer = () => {
       <div className="bottom-container">
         <div className="left-container">
           <h2 className="roboto">Creativision</h2> 
-          <p className="roboto">Roboto gabriel227@naver.com</p> 
+          <p className="roboto">gabriel227@naver.com</p> 
         </div>
         <p className="roboto">@2024_Project_Creativision</p>
       </div>
