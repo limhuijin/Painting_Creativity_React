@@ -43,7 +43,7 @@ const Style = styled.div`
   }
 
   .project h1 {
-    letter-spacing: 0.1em;
+    letter-spacing: 0.07em; /* 3차 피드백 자간 줄이기 */
     font-weight: 400;
   }
 
