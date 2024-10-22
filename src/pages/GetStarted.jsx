@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Button from "../components/Button";
+import { useRef, useState } from "react";
 
 const Style = styled.div`
   display: flex;
@@ -124,6 +125,25 @@ const GetStarted = () => {
     alert.style.display = "none";
   };
 
+  // 이미지 선택
+  const imageInputRef = useRef(null);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageInputButtonClick = () => {
+    imageInputRef.current.click();
+  };
+
+  const handleImageChange = (e) => {
+    const newImage = e.target.files[0];
+    if (newImage) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setSelectedImage(reader.result);
+      };
+      reader.readAsDataURL(newImage); // 파일을 Data URL로 읽기
+    }
+  };
+
   return (
     <Style>
       <h1 className="bmjua">
@@ -134,12 +154,19 @@ const GetStarted = () => {
         <div className="box">
           <div className="image-wrapper">
             <img
-              src="./src/assets/sample-image.png"
-              style={{
-                width: "60%",
-                height: "60%",
-                opacity: 0.3,
-              }}
+              id="img-selected"
+              src={
+                selectedImage ? selectedImage : "./src/assets/sample-image.png"
+              }
+              style={
+                !selectedImage
+                  ? {
+                      width: "60%",
+                      height: "60%",
+                      opacity: 0.3,
+                    }
+                  : {}
+              }
             />
           </div>
           <Button
@@ -147,6 +174,16 @@ const GetStarted = () => {
             style={{
               boxShadow: "0 5px 14px rgba(0, 0, 0, 0.4)",
               backgroundColor: "#fff",
+            }}
+            onClick={handleImageInputButtonClick}
+          />
+          <input
+            type="file"
+            accept="image/png"
+            ref={imageInputRef}
+            onChange={handleImageChange}
+            style={{
+              display: "none",
             }}
           />
         </div>
