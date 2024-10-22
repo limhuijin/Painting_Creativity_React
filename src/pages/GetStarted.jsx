@@ -125,7 +125,7 @@ const GetStarted = () => {
     alert.style.display = "none";
   };
 
-  // 이미지 선택
+  // 이미지 열기
   const imageInputRef = useRef(null);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -143,6 +143,16 @@ const GetStarted = () => {
       reader.readAsDataURL(newImage); // 파일을 Data URL로 읽기
     }
   };
+
+  // 이미지 분석
+  const handleImageAnalysisButtonClick = () => {
+    if (!selectedImage) {
+      displayAlert();
+      return;
+    }
+
+    // TODO: 이미지 분석 기능 구현
+  }
 
   return (
     <Style>
@@ -193,7 +203,7 @@ const GetStarted = () => {
           </div>
           <Button
             text="분석 시작"
-            onClick={displayAlert}
+            onClick={handleImageAnalysisButtonClick}
             style={{
               boxShadow: "0 5px 14px rgba(0, 0, 0, 0.4)",
             }}
