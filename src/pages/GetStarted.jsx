@@ -136,11 +136,7 @@ const GetStarted = () => {
   const handleImageChange = (e) => {
     const newImage = e.target.files[0];
     if (newImage) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setSelectedImage(reader.result);
-      };
-      reader.readAsDataURL(newImage); // 파일을 Data URL로 읽기
+      setSelectedImage(newImage); // 파일 객체를 그대로 저장
     }
   };
 
@@ -150,9 +146,34 @@ const GetStarted = () => {
       displayAlert();
       return;
     }
-
-    // TODO: 이미지 분석 기능 구현
-  }
+  
+    const formData = new FormData();
+    formData.append("file", selectedImage);
+  
+    try {
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://127.0.0.1:8000/analyze-image", true);
+      xhr.setRequestHeader("Accept", "application/json");
+  
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            const response = JSON.parse(xhr.responseText);
+            console.log("Analysis Result:", response);
+            alert('Total Score: ${response.total_score}\nCategory: ${response.category}');
+          } else {
+            console.error("Failed to analyze the image:", xhr.status, xhr.responseText);
+            alert("Failed to analyze the image.");
+          }
+        }
+      };
+  
+      // 서버로 FormData 전송
+      xhr.send(formData);
+    } catch (error) {
+      console.error("Error uploading the image:", error);
+    }
+  };
 
   return (
     <Style>
