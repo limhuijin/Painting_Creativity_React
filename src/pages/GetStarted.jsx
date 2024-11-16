@@ -170,7 +170,7 @@ const GetStarted = () => {
       const xhr = new XMLHttpRequest();
       xhr.open(
         "POST",
-        "https://a356-118-42-239-142.ngrok-free.app/analyze-image",
+        "https://briefly-glad-mallard.ngrok-free.app/analyze-image",
         true
       );
       xhr.setRequestHeader("Accept", "application/json");
