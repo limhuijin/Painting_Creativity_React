@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Button from "../components/Button";
 import { useRef, useState } from "react";
+import Chart from "../components/Chart";
 
 const Style = styled.div`
   display: flex;
@@ -144,33 +145,46 @@ const GetStarted = () => {
   };
 
   // 이미지 분석
+  const [analysisData, setAnalysisData] = useState([0.5, 0.5, 0.5, 0.5, 0.5]);
+
   const handleImageAnalysisButtonClick = () => {
-    if (!selectedImage) {
+    if (!selectedImageRaw) {
       displayAlert();
       return;
     }
-  
+
     const formData = new FormData();
     formData.append("file", selectedImageRaw);
-  
+
     try {
       const xhr = new XMLHttpRequest();
-      xhr.open("POST", "https://0048-203-230-150-248.ngrok-free.app/analyze-image", true);
+      xhr.open(
+        "POST",
+        "https://0048-203-230-150-248.ngrok-free.app/analyze-image",
+        true
+      );
       xhr.setRequestHeader("Accept", "application/json");
-  
-      xhr.onreadystatechange = function () {
+
+      xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {
             const response = JSON.parse(xhr.responseText);
             console.log("Analysis Result:", response);
-            alert(`Total Score: ${response.total_score}\nCategory: ${response.category}`);
+            alert(
+              `Total Score: ${response.total_score}\nCategory: ${response.category}`
+            );
+            setAnalysisData(response.predictions);
           } else {
-            console.error("Failed to analyze the image:", xhr.status, xhr.responseText);
+            console.error(
+              "Failed to analyze the image:",
+              xhr.status,
+              xhr.responseText
+            );
             alert("Failed to analyze the image.");
           }
         }
       };
-  
+
       // 서버로 FormData 전송
       xhr.send(formData);
     } catch (error) {
@@ -223,7 +237,7 @@ const GetStarted = () => {
         </div>
         <div className="box result">
           <div className="image-wrapper">
-            {false ? <img src="./src/assets/sample-image.png" /> : <></>}
+            <Chart aryData={analysisData} />
           </div>
           <Button
             text="분석 시작"
