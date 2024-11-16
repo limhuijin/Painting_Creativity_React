@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Button from "../components/Button";
 import { useRef, useState } from "react";
 import Chart from "../components/Chart";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Style = styled.div`
   display: flex;
@@ -27,6 +28,7 @@ const Style = styled.div`
     justify-content: center;
     align-items: center;
     gap: 80px;
+    flex-wrap: wrap;
   }
 
   .box {
@@ -35,6 +37,7 @@ const Style = styled.div`
     align-items: center;
     padding: 15px;
     width: 30vw;
+    min-width: 500px;
     border-radius: 30px;
     background-color: #ececec;
     gap: 15px;
@@ -99,7 +102,7 @@ const Style = styled.div`
   }
 
   // 세로모드 모바일
-  @media (max-width: 991px) and (orientation: portrait) {
+  @media (max-width: 1100px) {
     .container {
       flex-direction: column;
       gap: 40px;
@@ -107,6 +110,7 @@ const Style = styled.div`
 
     .box {
       width: 80vw;
+      min-width: 0;
     }
 
     .result {
@@ -146,6 +150,7 @@ const GetStarted = () => {
 
   // 이미지 분석
   const [analysisData, setAnalysisData] = useState([0.5, 0.5, 0.5, 0.5, 0.5]);
+  const [isAnalysisDone, setIsAnalysisDone] = useState(true);
 
   const handleImageAnalysisButtonClick = () => {
     if (!selectedImageRaw) {
@@ -153,14 +158,19 @@ const GetStarted = () => {
       return;
     }
 
+    if (!isAnalysisDone) {
+      return;
+    }
+
     const formData = new FormData();
     formData.append("file", selectedImageRaw);
+    setIsAnalysisDone(false);
 
     try {
       const xhr = new XMLHttpRequest();
       xhr.open(
         "POST",
-        "https://0048-203-230-150-248.ngrok-free.app/analyze-image",
+        "https://a356-118-42-239-142.ngrok-free.app/analyze-image",
         true
       );
       xhr.setRequestHeader("Accept", "application/json");
@@ -170,9 +180,6 @@ const GetStarted = () => {
           if (xhr.status === 200) {
             const response = JSON.parse(xhr.responseText);
             console.log("Analysis Result:", response);
-            alert(
-              `Total Score: ${response.total_score}\nCategory: ${response.category}`
-            );
             setAnalysisData(response.predictions);
           } else {
             console.error(
@@ -180,9 +187,10 @@ const GetStarted = () => {
               xhr.status,
               xhr.responseText
             );
-            alert("Failed to analyze the image.");
+            alert("이미지 분석에 실패했습니다.");
           }
         }
+        setIsAnalysisDone(true);
       };
 
       // 서버로 FormData 전송
@@ -237,7 +245,7 @@ const GetStarted = () => {
         </div>
         <div className="box result">
           <div className="image-wrapper">
-            <Chart aryData={analysisData} />
+            {isAnalysisDone ? <Chart aryData={analysisData} /> : <CircularProgress size="5em" />}
           </div>
           <Button
             text="분석 시작"
