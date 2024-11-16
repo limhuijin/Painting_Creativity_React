@@ -49,7 +49,7 @@ const Style = styled.header`
     color: black;
     position: relative;
   }
-    
+
   a h2 {
     font-weight: 400;
   }
@@ -107,6 +107,10 @@ const Style = styled.header`
 
     .menu {
       display: flex;
+    }
+
+    .logo h1 {
+      font-size: 1.5em;
     }
   }
 `;
