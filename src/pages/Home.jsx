@@ -208,7 +208,9 @@ const Home = () => {
         <p className="gray">
           아이들이 그린 그림을 통해 창의성을 분석해보세요!
         </p>
-        <Link to="/get-started" style={{ textDecoration: "none" }}>
+        <Link to="/get-started" style={{ textDecoration: "none" }} onClick={() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}>
           <Button text="시작하기" />
         </Link>
       </div>
