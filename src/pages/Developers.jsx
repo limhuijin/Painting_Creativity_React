@@ -115,23 +115,30 @@ const Developers = () => {
           <h2 className="noto-sans">Vactor0911</h2>
           <p id="role">프론트</p>
           <p id="description">
-            O&rsquo;er the land of the free and the homeof the brave! And where
-            is that band who so vauntingly
+            Mokwon Univ. Computer Science 20 <br />
+            Web Front-End Developer
           </p>
         </div>
         <div className="card">
           <img src="./src/assets/limhuijin.png" alt="profile"></img>
           <h2 className="noto-sans">limhuijin</h2>
-          <p id="role">서버 및 클라우드</p>
+          <p id="role">서버 및 AI</p>
           <p id="description">
             Mokwon Univ. Computer Science 22 <br />
             Machine Learning Engineer <br />
-            <a href="https://gabriel227.tistory.com/" target="_blank" style={{
-              color: "#666",
-              textDecoration: "none",
-              fontWeight: "bold",
-              textWrap: "nowrap"
-            }}>BLOG : https://gabriel227.tistory.com/</a> <br />
+            <a
+              href="https://gabriel227.tistory.com/"
+              target="_blank"
+              style={{
+                color: "#666",
+                textDecoration: "none",
+                fontWeight: "bold",
+                textWrap: "nowrap",
+              }}
+            >
+              BLOG : https://gabriel227.tistory.com/
+            </a>
+            <br />
           </p>
         </div>
         <div className="card">
