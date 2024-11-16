@@ -128,6 +128,7 @@ const GetStarted = () => {
   // 이미지 열기
   const imageInputRef = useRef(null);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImageRaw, setSelectedImageRaw] = useState(null);
 
   const handleImageInputButtonClick = () => {
     imageInputRef.current.click();
@@ -136,7 +137,9 @@ const GetStarted = () => {
   const handleImageChange = (e) => {
     const newImage = e.target.files[0];
     if (newImage) {
-      setSelectedImage(newImage); // 파일 객체를 그대로 저장
+      setSelectedImage(URL.createObjectURL(newImage)); // URL로 이미지 저장
+      setSelectedImageRaw(newImage); // 파일 객체를 그대로 저장
+      console.log(newImage);
     }
   };
 
@@ -148,11 +151,11 @@ const GetStarted = () => {
     }
   
     const formData = new FormData();
-    formData.append("file", selectedImage);
+    formData.append("file", selectedImageRaw);
   
     try {
       const xhr = new XMLHttpRequest();
-      xhr.open("POST", "http://127.0.0.1:8000/analyze-image", true);
+      xhr.open("POST", "https://0048-203-230-150-248.ngrok-free.app/analyze-image", true);
       xhr.setRequestHeader("Accept", "application/json");
   
       xhr.onreadystatechange = function () {
@@ -160,7 +163,7 @@ const GetStarted = () => {
           if (xhr.status === 200) {
             const response = JSON.parse(xhr.responseText);
             console.log("Analysis Result:", response);
-            alert('Total Score: ${response.total_score}\nCategory: ${response.category}');
+            alert(`Total Score: ${response.total_score}\nCategory: ${response.category}`);
           } else {
             console.error("Failed to analyze the image:", xhr.status, xhr.responseText);
             alert("Failed to analyze the image.");
