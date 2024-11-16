@@ -70,7 +70,7 @@ const Style = styled.div`
     background-color: white;
     border: 2px solid black;
     border-radius: 30px;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
