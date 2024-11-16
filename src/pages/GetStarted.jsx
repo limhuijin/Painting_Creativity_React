@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import Button from "../components/Button";
+import { useRef, useState } from "react";
+import Chart from "../components/Chart";
 
 const Style = styled.div`
   display: flex;
@@ -124,6 +126,72 @@ const GetStarted = () => {
     alert.style.display = "none";
   };
 
+  // 이미지 열기
+  const imageInputRef = useRef(null);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImageRaw, setSelectedImageRaw] = useState(null);
+
+  const handleImageInputButtonClick = () => {
+    imageInputRef.current.click();
+  };
+
+  const handleImageChange = (e) => {
+    const newImage = e.target.files[0];
+    if (newImage) {
+      setSelectedImage(URL.createObjectURL(newImage)); // URL로 이미지 저장
+      setSelectedImageRaw(newImage); // 파일 객체를 그대로 저장
+      console.log(newImage);
+    }
+  };
+
+  // 이미지 분석
+  const [analysisData, setAnalysisData] = useState([0.5, 0.5, 0.5, 0.5, 0.5]);
+
+  const handleImageAnalysisButtonClick = () => {
+    if (!selectedImageRaw) {
+      displayAlert();
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", selectedImageRaw);
+
+    try {
+      const xhr = new XMLHttpRequest();
+      xhr.open(
+        "POST",
+        "https://0048-203-230-150-248.ngrok-free.app/analyze-image",
+        true
+      );
+      xhr.setRequestHeader("Accept", "application/json");
+
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            const response = JSON.parse(xhr.responseText);
+            console.log("Analysis Result:", response);
+            alert(
+              `Total Score: ${response.total_score}\nCategory: ${response.category}`
+            );
+            setAnalysisData(response.predictions);
+          } else {
+            console.error(
+              "Failed to analyze the image:",
+              xhr.status,
+              xhr.responseText
+            );
+            alert("Failed to analyze the image.");
+          }
+        }
+      };
+
+      // 서버로 FormData 전송
+      xhr.send(formData);
+    } catch (error) {
+      console.error("Error uploading the image:", error);
+    }
+  };
+
   return (
     <Style>
       <h1 className="bmjua">
@@ -134,12 +202,19 @@ const GetStarted = () => {
         <div className="box">
           <div className="image-wrapper">
             <img
-              src="./src/assets/sample-image.png"
-              style={{
-                width: "60%",
-                height: "60%",
-                opacity: 0.3,
-              }}
+              id="img-selected"
+              src={
+                selectedImage ? selectedImage : "./src/assets/sample-image.png"
+              }
+              style={
+                !selectedImage
+                  ? {
+                      width: "60%",
+                      height: "60%",
+                      opacity: 0.3,
+                    }
+                  : {}
+              }
             />
           </div>
           <Button
@@ -148,15 +223,25 @@ const GetStarted = () => {
               boxShadow: "0 5px 14px rgba(0, 0, 0, 0.4)",
               backgroundColor: "#fff",
             }}
+            onClick={handleImageInputButtonClick}
+          />
+          <input
+            type="file"
+            accept="image/png"
+            ref={imageInputRef}
+            onChange={handleImageChange}
+            style={{
+              display: "none",
+            }}
           />
         </div>
         <div className="box result">
           <div className="image-wrapper">
-            {false ? <img src="./src/assets/sample-image.png" /> : <></>}
+            <Chart aryData={analysisData} />
           </div>
           <Button
             text="분석 시작"
-            onClick={displayAlert}
+            onClick={handleImageAnalysisButtonClick}
             style={{
               boxShadow: "0 5px 14px rgba(0, 0, 0, 0.4)",
             }}

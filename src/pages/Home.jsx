@@ -105,7 +105,7 @@ const Style = styled.div`
     gap: 20px;
     width: 20%;
     min-width: 200px;
-    padding: 40px 10px;
+    padding: 12px 10px; /* 3차 피드백 카드 크기 수정 */
     line-height: 2em;
     border-radius: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);

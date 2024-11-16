@@ -84,7 +84,7 @@ const Style = styled.div`
   }
 
   h1 {
-    font-size: 2.5em;
+    font-size: 2.25em; /* 3차 피드백 - 글씨 크기 수정*/
   }
 
   h2 {
@@ -99,6 +99,7 @@ const Style = styled.div`
     margin-top: 100px;
     align-self: center;
     text-decoration: none;
+    transform: translateX(-20%); /* 3차 피드백 - 이미지 기준으로 버튼 가운데 정렬 */
   }
 
   .right > h1 {
@@ -111,7 +112,7 @@ const Style = styled.div`
     height: 5px;
     top: -20%;
     left: -20%;
-    background-color: ${color.lightGray};
+    background-color: #d3d3d3; /* 3차 피드백 - 더 연한 회색 스포이트는 뭐임? */
     border-radius: 50px;
   }
 
@@ -156,6 +157,7 @@ const Style = styled.div`
     font-weight: bold;
     font-size: 3em;
     align-self: center;
+    transform: translateX(-330%); /* 이미지 기준으로 화살표 중앙 정렬 */
   }
 `;
 

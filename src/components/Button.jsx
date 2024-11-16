@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { color } from "../theme";
+import React, { PropsWithChildren } from "react";
 
 const Style = styled.button`
   display: flex;
@@ -27,11 +28,14 @@ const Style = styled.button`
   }
 `;
 
-const Button = ({icon, text, onClick, style, ...props}) => {
+const Button = (props) => {
+  const { icon, text, onClick, style, children } = props;
+
   return (
     <Style $hasIcon={!!icon} onClick={onClick} style={style}>
       {icon && <img src={icon} />}
       {text}
+      {children}
     </Style>
   );
 };

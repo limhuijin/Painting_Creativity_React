@@ -40,7 +40,8 @@ const Style = styled.footer`
   }
 
   .left-container h2 {
-    color: ${color.lightGray}
+    color: ${color.lightGray};
+    font-family: Roboto, sans-serif; /* Roboto 적용 */
   }
 
   h2 {
@@ -51,9 +52,10 @@ const Style = styled.footer`
     font-size: 1.05em;
     color: ${color.lightGray};
     position: relative;
+    font-family: Roboto, sans-serif; /* Roboto 적용 */
   }
 
-  .left-container>p: before {
+  .left-container > p:before {
     content: "";
     position: absolute;
     top: -12.5%;
@@ -63,7 +65,6 @@ const Style = styled.footer`
     background-color: #dbdbdb;
   }
 
-  // 세로모드 모바일
   @media (max-width: 991px) and (orientation: portrait) {
     .bottom-container {
       flex-direction: column;
@@ -76,7 +77,6 @@ const Style = styled.footer`
     }
   }
 
-  // 가로모드 모바일
   @media (max-width: 991px) and (orientation: landscape) {
     .bottom-container {
       flex-direction: column;
@@ -95,10 +95,10 @@ const Footer = () => {
       <div className="hr"></div>
       <div className="bottom-container">
         <div className="left-container">
-          <h2 className="noto-sans">Creativision</h2>
-          <p>프로젝트 gabriel227@naver.com</p>
+          <h2 className="roboto">Creativision</h2> 
+          <p className="roboto">gabriel227@naver.com</p> 
         </div>
-        <p>@2024_Project_Creativision</p>
+        <p className="roboto">@2024_Project_Creativision</p>
       </div>
     </Style>
   );
