@@ -2,6 +2,9 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import { color } from "../theme";
+import About1 from "../assets/images/about.jpg";
+import About2 from "../assets/images/about2.jpg";
+import About3 from "../assets/images/about3.jpg";
 
 const Style = styled.div`
   display: flex;
@@ -243,7 +246,7 @@ const About = () => {
 
         <h1 className="wavve-pado">아이들의 그림을 통한 창의력 분석 모델</h1>
         <p>아이들의 그림을 업로드하고 창의력을 평가해보세요!</p>
-        <img src="./src/assets/about3.jpg" />
+        <img src={About1} />
         <h1 className="wavve-pado">프로그램 장점을 말하다..</h1>
         <p>
           아이들은 사람, 동물, 식물, 음식, 로봇, 건물 등 다양한 것들에 관심을
@@ -269,7 +272,7 @@ const About = () => {
         </h1>
         <div className="wrapper">
           <div className="image-wrapper">
-            <img src="./src/assets/about3.jpg" />
+            <img src={About2} />
             <div className="text-wrapper">
               <h2 className="wavve-pado">1. 사진 업로드</h2>
               <p>ex&#41; PNG, JPEG, JPG ...</p>
@@ -277,7 +280,7 @@ const About = () => {
           </div>
           <h1 id="arrow">⬇</h1>
           <div className="image-wrapper">
-            <img src="./src/assets/about3.jpg" />
+            <img src={About3} />
             <h2 className="wavve-pado">2. 분석 시작</h2>
           </div>
         </div>

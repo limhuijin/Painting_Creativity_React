@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Wave from "../assets/images/wave.svg";
+import Background from "../assets/images/background.png";
 
 const Style = styled.div`
   display: flex;
@@ -23,7 +24,7 @@ const Style = styled.div`
     width: 100%;
     height: 100%;
     z-index: -10;
-    background-image: url("/src/assets/background.png");
+    background-image: url(${Background});
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

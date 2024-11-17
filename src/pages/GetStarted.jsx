@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import { useRef, useState } from "react";
 import Chart from "../components/Chart";
 import CircularProgress from '@mui/material/CircularProgress';
+import SampleImage from "../assets/images/sample-image.png";
 
 const Style = styled.div`
   display: flex;
@@ -212,7 +213,7 @@ const GetStarted = () => {
             <img
               id="img-selected"
               src={
-                selectedImage ? selectedImage : "./src/assets/sample-image.png"
+                selectedImage ? selectedImage : SampleImage
               }
               style={
                 !selectedImage
