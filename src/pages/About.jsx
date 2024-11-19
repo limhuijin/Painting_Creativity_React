@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import { color } from "../theme";
-import About1 from "../assets/images/about.jpg";
-import About2 from "../assets/images/about2.jpg";
-import About3 from "../assets/images/about3.jpg";
+import About1 from "../assets/images/about1.png";
+import About2 from "../assets/images/about2.png";
+import About3 from "../assets/images/about3.png";
 
 const Style = styled.div`
   display: flex;
@@ -258,9 +258,12 @@ const About = () => {
           AI가 어린이의 그림을 통해 섬세함, 스토리텔링 능력, 객체의 다양성, 공간
           활용, 표현력 총 5개의 항목을 수치화해줍니다.
         </p>
-        <Link to="/get-started" onClick={() => {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }}>
+        <Link
+          to="/get-started"
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        >
           <Button text="시작하기" />
         </Link>
       </div>
