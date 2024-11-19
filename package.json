@@ -8,13 +8,16 @@
     "devLan": "vite --port 4000 --host",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/styled": "^11.13.0",
     "@mui/styled-engine": "^6.1.7",
     "@mui/x-charts": "^7.22.2",
     "axios": "^1.7.7",
+    "gh-pages": "^6.2.0",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
