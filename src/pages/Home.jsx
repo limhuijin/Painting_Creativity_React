@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
-import Wave from "../assets/images/wave.svg";
 import Background from "../assets/images/background.png";
 
 const Style = styled.div`
@@ -49,12 +48,12 @@ const Style = styled.div`
 
   .waves .wave {
     position: absolute;
-    top: -40%;
+    top: -39.9%;
     left: -100%;
     width: 200%;
     height: 40%;
-    -webkit-mask-image: url(${Wave});
-    mask-image: url(${Wave});
+    -webkit-mask-image: url("./wave.svg");
+    mask-image: url("./wave.svg");
     mask-repeat: repeat-x;
     mask-position: bottom;
     background-color: rgb(255, 255, 255);
