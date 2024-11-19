@@ -45,7 +45,7 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Painting_Creativity_React/">
       <Style>
         <Header />
         <div className="main-container" onClick={closeMenu}>
