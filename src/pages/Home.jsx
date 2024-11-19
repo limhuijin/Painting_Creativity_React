@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Wave from "../assets/images/wave.svg";
+import Background from "../assets/images/background.png";
 
 const Style = styled.div`
   display: flex;
@@ -23,7 +24,7 @@ const Style = styled.div`
     width: 100%;
     height: 100%;
     z-index: -10;
-    background-image: url("/src/assets/background.png");
+    background-image: url(${Background});
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -208,7 +209,9 @@ const Home = () => {
         <p className="gray">
           아이들이 그린 그림을 통해 창의성을 분석해보세요!
         </p>
-        <Link to="/get-started" style={{ textDecoration: "none" }}>
+        <Link to="/get-started" style={{ textDecoration: "none" }} onClick={() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}>
           <Button text="시작하기" />
         </Link>
       </div>

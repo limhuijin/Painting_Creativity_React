@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { color } from "../theme";
+import Logo from "../assets/images/creativity-logo.svg";
 
 const Style = styled.header`
   width: 100%;
@@ -49,7 +50,7 @@ const Style = styled.header`
     color: black;
     position: relative;
   }
-    
+
   a h2 {
     font-weight: 400;
   }
@@ -107,6 +108,10 @@ const Style = styled.header`
 
     .menu {
       display: flex;
+    }
+
+    .logo h1 {
+      font-size: 1.5em;
     }
   }
 `;
@@ -173,7 +178,7 @@ const Header = () => {
   return (
     <Style>
       <Link to="/" className="logo">
-        <img src="./src/assets/sample-logo.png" alt="logo" />
+        <img src={Logo} alt="logo" />
         <h1 className="noto-sans">Creativision</h1>
       </Link>
       <ul>

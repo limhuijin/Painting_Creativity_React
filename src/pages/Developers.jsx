@@ -1,4 +1,9 @@
 import styled from "styled-components";
+import Logo from "../assets/images/creativity-logo.svg";
+import Vactor0911 from "../assets/images/vactor0911.png";
+import Limhuijin from "../assets/images/limhuijin.png";
+import Heoseonjin from "../assets/images/heoseonjin.png";
+import J_doyoon from "../assets/images/j_doyoon.png";
 
 const Style = styled.div`
   display: flex;
@@ -61,7 +66,7 @@ const Style = styled.div`
     position: relative;
     width: 9vw;
     min-width: 250px;
-    padding: 40px;
+    padding: 30px;
     border-radius: 25px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     gap: 10px;
@@ -98,59 +103,88 @@ const Style = styled.div`
     font-size: 0.4em;
     line-height: 2.1;
     margin-top: 10px;
-    padding-bottom: 40px;
   }
 `;
+
+const StyledLink = (props) => {
+  const [link, text] = [props.link, props.text];
+
+  return (
+    <a
+      href={link}
+      target="_blank"
+      style={{
+        color: "#666",
+        fontSize: "0.8em",
+        fontWeight: "bold",
+        textWrap: "balance",
+        marginBottom: "40px",
+      }}
+    >
+      {text}
+    </a>
+  );
+};
 
 const Developers = () => {
   return (
     <Style>
       <div className="project">
-        <img src="./src/assets/sample-logo.png" alt="logo"></img>
+        <img src={Logo} alt="logo"></img>
         <h1 className="noto-sans">Creativision</h1>
       </div>
       <div className="cards">
         <div className="card">
-          <img src="./src/assets/vactor0911.png" alt="profile"></img>
+          <img src={Vactor0911} alt="profile"></img>
           <h2 className="noto-sans">Vactor0911</h2>
           <p id="role">프론트</p>
           <p id="description">
-            O&rsquo;er the land of the free and the homeof the brave! And where
-            is that band who so vauntingly
+            Mokwon Univ. Computer Engineering 20 <br />
+            Web Front-End Developer <br />
           </p>
+          <StyledLink
+            link="https://github.com/Vactor0911/"
+            text="GitHub Profile"
+          />
         </div>
         <div className="card">
-          <img src="./src/assets/limhuijin.png" alt="profile"></img>
+          <img src={Limhuijin} alt="profile"></img>
           <h2 className="noto-sans">limhuijin</h2>
-          <p id="role">서버 및 클라우드</p>
+          <p id="role">서버 및 AI</p>
           <p id="description">
-            Mokwon Univ. Computer Science 22 <br />
+            Mokwon Univ. Computer Engineering 22 <br />
             Machine Learning Engineer <br />
-            <a href="https://gabriel227.tistory.com/" target="_blank" style={{
-              color: "#666",
-              textDecoration: "none",
-              fontWeight: "bold",
-              textWrap: "nowrap"
-            }}>BLOG : https://gabriel227.tistory.com/</a> <br />
           </p>
+          <StyledLink
+            link="https://gabriel227.tistory.com/"
+            text="Tistory Blog"
+          />
         </div>
         <div className="card">
-          <img src="./src/assets/heoseonjin.png" alt="profile"></img>
+          <img src={Heoseonjin} alt="profile"></img>
           <h2 className="noto-sans">HeoSeonJin0504</h2>
-          <p id="role">프론트</p>
+          <p id="role">프론트엔드</p>
           <p id="description">
-            O&rsquo;er the land of the free and the homeof the brave! And where
-            is that band who so vauntingly
+            Mokwon Univ. Computer Engineering 20 <br />
+            Web Front-End Developer <br />
           </p>
+          <StyledLink
+            link="https://gabriel227.tistory.com/"
+            text="GitHub Profile"
+          />
         </div>
         <div className="card">
-          <img src="./src/assets/j_doyoon.png" alt="profile"></img>
+          <img src={J_doyoon} alt="profile"></img>
           <h2 className="noto-sans">J_doyoon</h2>
           <p id="role">디자이너</p>
           <p id="description">
-            O&rsquo;er the land of the free and the homeof the brave! And where
-            is that band who so vauntingly
+            Mokwon Univ. Department Of <br />
+            Industrial Design <br />
           </p>
+          <StyledLink
+            link="https://m.blog.naver.com/jungdoyoon12/"
+            text="Naver Blog"
+          />
         </div>
       </div>
     </Style>

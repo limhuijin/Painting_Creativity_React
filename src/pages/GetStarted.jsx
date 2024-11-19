@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import { useRef, useState } from "react";
 import Chart from "../components/Chart";
 import CircularProgress from '@mui/material/CircularProgress';
+import SampleImage from "../assets/images/sample-image.png";
 
 const Style = styled.div`
   display: flex;
@@ -70,7 +71,7 @@ const Style = styled.div`
     background-color: white;
     border: 2px solid black;
     border-radius: 30px;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -170,7 +171,7 @@ const GetStarted = () => {
       const xhr = new XMLHttpRequest();
       xhr.open(
         "POST",
-        "https://a356-118-42-239-142.ngrok-free.app/analyze-image",
+        "https://briefly-glad-mallard.ngrok-free.app/analyze-image",
         true
       );
       xhr.setRequestHeader("Accept", "application/json");
@@ -212,7 +213,7 @@ const GetStarted = () => {
             <img
               id="img-selected"
               src={
-                selectedImage ? selectedImage : "./src/assets/sample-image.png"
+                selectedImage ? selectedImage : SampleImage
               }
               style={
                 !selectedImage
