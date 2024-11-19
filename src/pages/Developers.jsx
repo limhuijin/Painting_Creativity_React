@@ -179,7 +179,7 @@ const Developers = () => {
           <p id="role">디자이너</p>
           <p id="description">
             Mokwon Univ. Department Of <br />
-            Industrial Design <br />
+            Industrial Design 22 <br />
           </p>
           <StyledLink
             link="https://m.blog.naver.com/jungdoyoon12/"
