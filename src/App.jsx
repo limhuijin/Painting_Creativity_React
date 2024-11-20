@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Header, Footer } from "./components";
 import { Home, About, GetStarted, Developers } from "./pages";
 import styled from "styled-components";
@@ -54,6 +54,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/get-started" element={<GetStarted />} />
             <Route path="/developers" element={<Developers />} />
+            <Route path="*" element={<Navigate to={"/"} />} />
           </Routes>
         </div>
         <Footer />
